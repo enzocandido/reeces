@@ -1,5 +1,6 @@
 package br.com.fatec;
 
+import br.com.fatec.bd.Banco;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -7,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 /**
  * JavaFX App
@@ -41,6 +43,16 @@ public class App extends Application {
     public static void main(String[] args) {
         System.out.println("Ola");
         launch();
+        try {
+            System.out.println("Conectando ...");
+            Banco.conectar();
+            System.out.println("Conectado ...");
+            Banco.desconectar();
+            System.out.println("Desconectado...");
+        }
+        catch (SQLException ex) {
+            System.out.println("Erro: " + ex.getMessage());
+        }
     }
 
 }
