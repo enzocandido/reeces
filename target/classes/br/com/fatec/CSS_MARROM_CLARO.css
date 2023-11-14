@@ -1,0 +1,6 @@
+.dropshadowtela{
+    -fx-background-color: #614741;
+    -fx-background-radius: 20px;
+    -fx-effect: dropshadow( three-pass-box, rgba(0,0,0,0.6) , 15, 0.0 , 0 , 2);
+       
+}
