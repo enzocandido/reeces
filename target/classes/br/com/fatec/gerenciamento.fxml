@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.fatec.GerenciamentoController">
    <top>
       <AnchorPane prefHeight="153.0" prefWidth="1440.0" style="-fx-background-color: #331b1b;" BorderPane.alignment="CENTER">
          <children>
@@ -25,7 +25,7 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e8c4ac;" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="1019.0" layoutY="592.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="240.0" styleClass="dropshadowtela" stylesheets="@CSS_SOMBRA.css" text="CADASTRAR" textFill="WHITE">
+            <Button layoutX="1019.0" layoutY="592.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="240.0" styleClass="dropshadowtela" stylesheets="@@CSS/CSS_SOMBRA.css" text="CADASTRAR" textFill="WHITE">
                <font>
                   <Font name="Impact" size="33.0" />
                </font>
@@ -35,7 +35,7 @@
                   <Font size="25.0" />
                </font>
             </Text>
-            <TextField layoutX="339.0" layoutY="258.0" prefHeight="73.0" prefWidth="375.0" style="-fx-background-color: #ffffff;" styleClass="dropshadowtela" stylesheets="@CSS_SOMBRA.css" />
+            <TextField layoutX="339.0" layoutY="258.0" prefHeight="73.0" prefWidth="375.0" style="-fx-background-color: #ffffff;" styleClass="dropshadowtela" stylesheets="@CSS/CSS_SOMBRA.css" />
             <Text layoutX="347.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PROFISSIONAL">
                <font>
                   <Font size="25.0" />
@@ -47,22 +47,22 @@
                </font>
             </Text>
             <TextField layoutX="613.0" layoutY="423.0" prefHeight="73.0" prefWidth="94.0" style="-fx-background-color: #ffffff;" styleClass="dropshadowtela" stylesheets="@CSS_SOMBRA.css" />
-            <Button layoutX="500.0" layoutY="424.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="98.0" styleClass="dropshadowtela" stylesheets="@CSS_SOMBRA.css" text="s" textFill="WHITE">
+            <Button layoutX="500.0" layoutY="424.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="98.0" styleClass="dropshadowtela" stylesheets="@CSS/CSS_SOMBRA.css" text="s" textFill="WHITE">
                <font>
                   <Font name="Impact" size="33.0" />
                </font>
             </Button>
-            <Button layoutX="742.0" layoutY="592.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="240.0" styleClass="dropshadowtela" stylesheets="@CSS_MARROM_CLARO.css" text="ALTERAR" textFill="WHITE">
+            <Button layoutX="742.0" layoutY="592.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="240.0" styleClass="dropshadowtela" stylesheets="@CSS/CSS_MARROM_CLARO.css" text="ALTERAR" textFill="WHITE">
                <font>
                   <Font name="Impact" size="33.0" />
                </font>
             </Button>
-            <Button layoutX="464.0" layoutY="591.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="240.0" styleClass="dropshadowtela" stylesheets="@CSS_MARROM_CLARO.css" text="EXCLUIR" textFill="WHITE">
+            <Button layoutX="464.0" layoutY="591.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="240.0" styleClass="dropshadowtela" stylesheets="@CSS/CSS_MARROM_CLARO.css" text="EXCLUIR" textFill="WHITE">
                <font>
                   <Font name="Impact" size="33.0" />
                </font>
             </Button>
-            <Button layoutX="187.0" layoutY="590.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="240.0" styleClass="dropshadowtela" stylesheets="@CSS_MARROM_CLARO.css" text="CANCELAR" textFill="WHITE">
+            <Button fx:id="btn_cancelar" layoutX="187.0" layoutY="590.0" mnemonicParsing="false" onAction="#btn_cancelar_Clicked" prefHeight="66.0" prefWidth="240.0" styleClass="dropshadowtela" stylesheets="@CSS/CSS_MARROM_CLARO.css" text="CANCELAR" textFill="WHITE">
                <font>
                   <Font name="Impact" size="33.0" />
                </font>
@@ -72,20 +72,20 @@
                   <Font size="25.0" />
                </font>
             </Text>
-            <ComboBox layoutX="757.0" layoutY="103.0" prefHeight="73.0" prefWidth="373.0" style="-fx-background-color: #ffffff;" styleClass="dropshadowtela" stylesheets="@CSS_SOMBRA.css" />
+            <ComboBox layoutX="757.0" layoutY="103.0" prefHeight="73.0" prefWidth="373.0" style="-fx-background-color: #ffffff;" styleClass="dropshadowtela" stylesheets="@CSS/CSS_SOMBRA.css" />
             <Text layoutX="757.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SERVIÇOS">
                <font>
                   <Font size="25.0" />
                </font>
             </Text>
-            <TextField layoutX="757.0" layoutY="256.0" prefHeight="73.0" prefWidth="373.0" style="-fx-background-color: #ffffff;" styleClass="dropshadowtela" stylesheets="@CSS_SOMBRA.css" />
+            <TextField layoutX="757.0" layoutY="256.0" prefHeight="73.0" prefWidth="373.0" style="-fx-background-color: #ffffff;" styleClass="dropshadowtela" stylesheets="@CSS/CSS_SOMBRA.css" />
             <Text layoutX="749.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HORÁRIO">
                <font>
                   <Font size="25.0" />
                </font>
             </Text>
-            <ComboBox layoutX="344.0" layoutY="102.0" prefHeight="73.0" prefWidth="373.0" style="-fx-background-color: #ffffff;" styleClass="dropshadowtela" stylesheets="@CSS_SOMBRA.css" />
-            <ComboBox layoutX="749.0" layoutY="424.0" prefHeight="71.0" prefWidth="383.0" style="-fx-background-color: #ffffff;" styleClass="dropshadowtela" stylesheets="@CSS_SOMBRA.css" />
+            <ComboBox layoutX="344.0" layoutY="102.0" prefHeight="73.0" prefWidth="373.0" style="-fx-background-color: #ffffff;" styleClass="dropshadowtela" stylesheets="@CSS/CSS_SOMBRA.css" />
+            <ComboBox layoutX="749.0" layoutY="424.0" prefHeight="71.0" prefWidth="383.0" style="-fx-background-color: #ffffff;" styleClass="dropshadowtela" stylesheets="@CSS/CSS_SOMBRA.css" />
          </children></AnchorPane>
    </center>
 </BorderPane>
