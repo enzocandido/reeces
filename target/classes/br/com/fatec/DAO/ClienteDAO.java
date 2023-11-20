@@ -106,11 +106,8 @@ public class ClienteDAO implements DAO<Clientes> {
         return null;
     }
 
-    @Override
-    public Collection<Clientes> lista(String filtro) throws SQLException {
-        Collection<Clientes> listagem = new ArrayList<>();
-
-        cliente = null;
+    public Clientes pesquisa(String filtro) throws SQLException {
+        Clientes cliente = null;
 
         String sql = "SELECT * FROM clientes ";
 
@@ -124,7 +121,7 @@ public class ClienteDAO implements DAO<Clientes> {
 
         rs = pst.executeQuery();
 
-        while (rs.next()) {
+        if (rs.next()) {
             cliente = new Clientes();
             cliente.setId(rs.getInt("id"));
             cliente.setNome(rs.getString("nome"));
@@ -132,17 +129,23 @@ public class ClienteDAO implements DAO<Clientes> {
             cliente.setSexo(rs.getString("sexo"));
             cliente.setTelefone(rs.getString("telefone"));
 
-            java.sql.Date sqlDate = rs.getDate("data_nascimento");
-            Date dataNascimento = new Date(sqlDate.getTime());
+            // Convertendo java.sql.Date para java.util.Date
+            java.util.Date utilDate = new java.util.Date(rs.getDate("data_nascimento").getTime());
+            cliente.setDataNascimento(utilDate);
 
             cliente.setEndereco(rs.getString("endereco"));
-
-            listagem.add(cliente);
         }
 
         Banco.desconectar();
 
-        return listagem;
+        return cliente;
     }
+
+
+    @Override
+    public Collection<Clientes> lista(String criterio) throws SQLException {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
 
 }

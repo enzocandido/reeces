@@ -42,14 +42,10 @@ public class App extends Application {
     }
     
     public static void main(String[] args) {
-        System.out.println("Ola");
         launch();
         try {
-            System.out.println("Conectando ...");
             Banco.conectar();
-            System.out.println("Conectado ...");
             Banco.desconectar();
-            System.out.println("Desconectado...");
         }
         catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());

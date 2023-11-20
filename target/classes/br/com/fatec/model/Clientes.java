@@ -1,6 +1,6 @@
 package br.com.fatec.model;
 
-import java.util.Date; // Importe para manipulação de data
+import java.util.Date;
 import java.util.Objects;
 
 public class Clientes {
@@ -9,7 +9,7 @@ public class Clientes {
     private String email;
     private String sexo;
     private String telefone;
-    private Date dataNascimento; // Alteração do tipo para Date
+    private Date dataNascimento;
     private String endereco;
 
     public Clientes() {

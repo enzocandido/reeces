@@ -4,6 +4,8 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.shape.Line?>
@@ -49,10 +51,14 @@
                </font>
             </Text>
             <TextField fx:id="txtId" layoutX="1248.0" layoutY="437.0" prefHeight="73.0" prefWidth="94.0" style="-fx-background-color: #ffffff;" styleClass="dropshadowtela" stylesheets="@CSS/CSS_SOMBRA.css" />
-            <Button fx:id="btnPesquisar" layoutX="1136.0" layoutY="442.0" mnemonicParsing="false" onAction="#btnPesquisar_Click" prefHeight="60.0" prefWidth="98.0" styleClass="dropshadowtela" stylesheets="@CSS/CSS_SOMBRA.css" text="s" textFill="WHITE">
-               <font>
-                  <Font name="Impact" size="33.0" />
-               </font>
+            <Button fx:id="btnPesquisar" layoutX="1136.0" layoutY="442.0" mnemonicParsing="false" onAction="#btnPesquisar_Click" prefHeight="60.0" prefWidth="98.0" styleClass="dropshadowtela" stylesheets="@CSS/CSS_SOMBRA.css" textFill="WHITE">
+                <graphic>
+                    <ImageView fitHeight="27.0" fitWidth="26.0">
+                        <image>
+                            <Image url="@imagens/search.png" />
+                        </image>
+                    </ImageView>
+                </graphic>
             </Button>
             <Button fx:id="btnAlterar" layoutX="742.0" layoutY="592.0" mnemonicParsing="false" onAction="#btnAlterar_Click" prefHeight="66.0" prefWidth="240.0" styleClass="dropshadowtela" stylesheets="@CSS/CSS_MARROM_CLARO.css" text="ALTERAR" textFill="WHITE">
                <font>

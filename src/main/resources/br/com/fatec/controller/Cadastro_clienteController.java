@@ -7,9 +7,11 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 
 import java.util.Date;
 import java.util.ResourceBundle;
@@ -26,6 +28,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.scene.control.Alert;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 
 public class Cadastro_clienteController implements Initializable {
 
@@ -72,7 +76,46 @@ public class Cadastro_clienteController implements Initializable {
 
     @FXML
     private void btnAlterar_Click(ActionEvent event) {
+        ClienteDAO clienteDAO = new ClienteDAO();
+
+        try {
+            int idCliente = Integer.parseInt(txtId.getText());
+            String nome = txtNome.getText();
+            String email = txtEmail.getText();
+            String sexo = txtSexo.getText();
+            String telefone = txtTelefone.getText();
+            LocalDate dataNascimento = dpNascimento.getValue();
+            String endereco = txtEndereco.getText();
+
+            Clientes clienteAlterado = new Clientes();
+            clienteAlterado.setId(idCliente);
+            clienteAlterado.setNome(nome);
+            clienteAlterado.setEmail(email);
+            clienteAlterado.setSexo(sexo);
+            clienteAlterado.setTelefone(telefone);
+            clienteAlterado.setDataNascimento(Date.from(dataNascimento.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+            clienteAlterado.setEndereco(endereco);
+
+            boolean alterou = clienteDAO.altera(clienteAlterado);
+            
+            Alert alert = new Alert(alterou ? Alert.AlertType.INFORMATION : Alert.AlertType.ERROR);
+            alert.setTitle("Aviso");
+            alert.setHeaderText(null);
+
+            if (alterou) {
+                alert.setContentText("Cliente modificado com sucesso!");
+                limparCampos();
+            } else {
+                alert.setContentText("Falha ao alterar o cliente. Verifique os dados.");
+            }
+            
+            alert.showAndWait();
+            
+        } catch (NumberFormatException | SQLException e) {
+            e.printStackTrace();
+        }
     }
+
 
     @FXML
     private void btnExcluir_Click(ActionEvent event) {
@@ -103,15 +146,6 @@ public class Cadastro_clienteController implements Initializable {
         }
     }
 
-    @FXML
-    private void btnCancelar_Click(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/br/com/fatec/menu.fxml"));
-        Parent root = loader.load();
-        Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.show();
-    }
-    
     private void inserirCliente() throws SQLException, ParseException {
         ClienteDAO clienteDAO = new ClienteDAO();
 
@@ -161,6 +195,72 @@ public class Cadastro_clienteController implements Initializable {
 
     @FXML
     private void btnPesquisar_Click(ActionEvent event) {
+        ClienteDAO clienteDAO = new ClienteDAO();
+
+        try {
+            int idCliente = Integer.parseInt(txtId.getText());
+
+            Clientes clientePesquisado = clienteDAO.pesquisa("id = " + idCliente);
+
+            if (clientePesquisado != null) {
+                txtNome.setText(clientePesquisado.getNome());
+                txtEmail.setText(clientePesquisado.getEmail());
+                txtSexo.setText(clientePesquisado.getSexo());
+                txtTelefone.setText(clientePesquisado.getTelefone());
+
+                LocalDate dataNascimento = clientePesquisado.getDataNascimento().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+
+                dpNascimento.setValue(dataNascimento);
+
+                txtEndereco.setText(clientePesquisado.getEndereco());
+                
+                btnAlterar.setStyle("-fx-background-color: #331b1b");
+                btnAlterar.setDisable(false);
+            } else {
+                limparCampos();
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Erro");
+                alert.setHeaderText(null);
+                alert.setContentText("Cliente não encontrado.");
+                alert.showAndWait();
+                btnAlterar.setStyle("-fx-background-color: #614741;");
+            }
+        } catch (NumberFormatException | SQLException e) {
+            e.printStackTrace();
+        }
     }
-    
+
+    @FXML
+    private void btnCancelar_Click(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/br/com/fatec/menu.fxml"));
+        Parent root = loader.load();
+        Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+
+    @FXML
+    private void txtInput_Typed(KeyEvent event) {
+        String idClienteString = txtId.getText();
+
+        if (!idClienteString.isEmpty()) {
+            try {
+                int idCliente = Integer.parseInt(idClienteString);
+                if (idCliente > 0) {
+                    btnExcluir.setDisable(false);
+                    btnExcluir.setStyle("-fx-background-color: #331b1b");
+                } else {
+                    btnAlterar.setStyle("-fx-background-color: #614741;");
+                    btnExcluir.setStyle("-fx-background-color: #614741;");
+                }
+            } catch (NumberFormatException e) {
+                btnAlterar.setStyle("-fx-background-color: #614741;");
+                btnExcluir.setStyle("-fx-background-color: #614741;");
+            }
+        } else {
+            btnExcluir.setDisable(true);
+            btnAlterar.setDisable(true);
+            btnExcluir.setStyle("-fx-background-color: #614741;");
+        }
+    }
 }
