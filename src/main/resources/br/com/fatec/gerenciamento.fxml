@@ -27,7 +27,7 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e8c4ac;" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="btnCadastrar" layoutX="1019.0" layoutY="592.0" mnemonicParsing="false" onAction="#btnCadastrar_Click" prefHeight="66.0" prefWidth="240.0" styleClass="dropshadowtela" stylesheets="@css/CSS_SOMBRA.css" text="CADASTRAR" textFill="WHITE">
+            <Button fx:id="btnCadastrar" layoutX="1019.0" layoutY="592.0" mnemonicParsing="false" onAction="#btnCadastrar_Click" prefHeight="66.0" prefWidth="240.0" styleClass="button" stylesheets="@CSS/styles.css" text="CADASTRAR" textFill="WHITE">
                <font>
                   <Font name="Impact" size="33.0" />
                </font>
@@ -37,7 +37,10 @@
                   <Font size="25.0" />
                </font>
             </Text>
-            <TextField fx:id="txtProfissional" layoutX="340.0" layoutY="258.0" prefHeight="73.0" prefWidth="375.0" style="-fx-background-color: #ffffff;" styleClass="dropshadowtela" stylesheets="@CSS/CSS_SOMBRA.css" />
+            <TextField fx:id="txtProfissional" layoutX="340.0" layoutY="258.0" prefHeight="73.0" prefWidth="375.0" styleClass="input" stylesheets="@CSS/styles.css">
+               <font>
+                  <Font size="16.0" />
+               </font></TextField>
             <Text layoutX="352.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PROFISSIONAL">
                <font>
                   <Font size="25.0" />
@@ -48,8 +51,11 @@
                   <Font size="25.0" />
                </font>
             </Text>
-            <TextField fx:id="txtId" layoutX="613.0" layoutY="423.0" prefHeight="73.0" prefWidth="94.0" style="-fx-background-color: #ffffff;" styleClass="dropshadowtela" stylesheets="@CSS/CSS_SOMBRA.css" />
-            <Button fx:id="btnPesquisar" layoutX="500.0" layoutY="423.0" mnemonicParsing="false" onAction="#btnPesquisar_Click" prefHeight="60.0" prefWidth="98.0" styleClass="dropshadowtela" stylesheets="@CSS/CSS_SOMBRA.css" textFill="WHITE">
+            <TextField fx:id="txtId" layoutX="613.0" layoutY="423.0" prefHeight="73.0" prefWidth="94.0" styleClass="input" stylesheets="@CSS/styles.css">
+               <font>
+                  <Font size="16.0" />
+               </font></TextField>
+            <Button fx:id="btnPesquisar" layoutX="500.0" layoutY="423.0" mnemonicParsing="false" onAction="#btnPesquisar_Click" prefHeight="60.0" prefWidth="98.0" styleClass="button" stylesheets="@CSS/styles.css" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="27.0" fitWidth="26.0">
                       <image>
@@ -58,17 +64,17 @@
                   </ImageView>
               </graphic>
             </Button>
-            <Button fx:id="btnAlterar" layoutX="742.0" layoutY="592.0" mnemonicParsing="false" onAction="#btnAlterar_Click" prefHeight="66.0" prefWidth="240.0" styleClass="dropshadowtela" stylesheets="@CSS/CSS_MARROM_CLARO.css" text="ALTERAR" textFill="WHITE">
+            <Button fx:id="btnAlterar" layoutX="742.0" layoutY="592.0" mnemonicParsing="false" onAction="#btnAlterar_Click" prefHeight="66.0" prefWidth="240.0" styleClass="button" stylesheets="@CSS/styles.css" text="ALTERAR" textFill="WHITE">
                <font>
                   <Font name="Impact" size="33.0" />
                </font>
             </Button>
-            <Button fx:id="btnExcluir" layoutX="464.0" layoutY="591.0" mnemonicParsing="false" onAction="#btnExcluir_Click" prefHeight="66.0" prefWidth="240.0" styleClass="dropshadowtela" stylesheets="@CSS/CSS_MARROM_CLARO.css" text="EXCLUIR" textFill="WHITE">
+            <Button fx:id="btnExcluir" layoutX="464.0" layoutY="591.0" mnemonicParsing="false" onAction="#btnExcluir_Click" prefHeight="66.0" prefWidth="240.0" styleClass="button" stylesheets="@CSS/styles.css" text="EXCLUIR" textFill="WHITE">
                <font>
                   <Font name="Impact" size="33.0" />
                </font>
             </Button>
-            <Button fx:id="btnCancelar" layoutX="187.0" layoutY="590.0" mnemonicParsing="false" onAction="#btnCancelar_Click" prefHeight="66.0" prefWidth="240.0" styleClass="dropshadowtela" stylesheets="@CSS/CSS_MARROM_CLARO.css" text="CANCELAR" textFill="WHITE">
+            <Button fx:id="btnCancelar" layoutX="187.0" layoutY="590.0" mnemonicParsing="false" onAction="#btnCancelar_Click" prefHeight="66.0" prefWidth="240.0" styleClass="button" stylesheets="@CSS/styles.css" text="CANCELAR" textFill="WHITE">
                <font>
                   <Font name="Impact" size="33.0" />
                </font>
@@ -78,20 +84,29 @@
                   <Font size="25.0" />
                </font>
             </Text>
-            <ComboBox fx:id="cmbServicos" layoutX="757.0" layoutY="105.0" prefHeight="73.0" prefWidth="373.0" style="-fx-background-color: #ffffff;" styleClass="dropshadowtela" stylesheets="@CSS/CSS_SOMBRA.css" />
+            <ComboBox fx:id="cmbServicos" layoutX="757.0" layoutY="105.0" prefHeight="73.0" prefWidth="373.0" styleClass="input" stylesheets="@CSS/styles.css" />
             <Text layoutX="767.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SERVIÇOS">
                <font>
                   <Font size="25.0" />
                </font>
             </Text>
-            <TextField fx:id="txtHorario" layoutX="757.0" layoutY="258.0" prefHeight="73.0" prefWidth="373.0" style="-fx-background-color: #ffffff;" styleClass="dropshadowtela" stylesheets="@CSS/CSS_SOMBRA.css" />
+            <TextField fx:id="txtHorario" layoutX="757.0" layoutY="258.0" prefHeight="73.0" prefWidth="373.0" styleClass="input" stylesheets="@CSS/styles.css">
+               <font>
+                  <Font size="16.0" />
+               </font></TextField>
             <Text layoutX="767.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HORÁRIO">
                <font>
                   <Font size="25.0" />
                </font>
             </Text>
-            <TextField fx:id="txtCliente" layoutX="340.0" layoutY="105.0" prefHeight="73.0" prefWidth="373.0" style="-fx-background-color: #ffffff;" styleClass="dropshadowtela" stylesheets="@CSS/CSS_SOMBRA.css" />
-            <TextField fx:id="txtUnidade" layoutX="757.0" layoutY="423.0" prefHeight="73.0" prefWidth="373.0" style="-fx-background-color: #ffffff;" styleClass="dropshadowtela" stylesheets="@CSS/CSS_SOMBRA.css" />
+            <TextField fx:id="txtCliente" layoutX="340.0" layoutY="105.0" prefHeight="73.0" prefWidth="373.0" styleClass="input" stylesheets="@css/styles.css">
+               <font>
+                  <Font size="16.0" />
+               </font></TextField>
+            <TextField fx:id="txtUnidade" layoutX="757.0" layoutY="423.0" prefHeight="73.0" prefWidth="373.0" styleClass="input" stylesheets="@CSS/styles.css">
+               <font>
+                  <Font size="16.0" />
+               </font></TextField>
          </children></AnchorPane>
    </center>
 </BorderPane>

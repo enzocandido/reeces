@@ -26,24 +26,27 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e8c4ac;" BorderPane.alignment="CENTER">
          <children>
-            <TextField fx:id="txtNome" layoutX="158.0" layoutY="54.0" prefHeight="88.0" prefWidth="405.0" promptText="NOME" style="-fx-background-color: #ffffff;" styleClass="dropshadowtela" stylesheets="@css/CSS_SOMBRA.css" />
-            <Button fx:id="btnFiltrar" layoutX="1072.0" layoutY="63.0" mnemonicParsing="false" onAction="#btnFiltrar_Click" prefHeight="71.0" prefWidth="274.0" styleClass="dropshadowtela" stylesheets="@css/CSS_SOMBRA.css" text="FILTRAR" textFill="WHITE">
+            <TextField fx:id="txtNome" layoutX="158.0" layoutY="54.0" prefHeight="88.0" prefWidth="405.0" promptText="NOME" styleClass="input" stylesheets="@css/styles.css">
+               <font>
+                  <Font size="16.0" />
+               </font></TextField>
+            <Button fx:id="btnFiltrar" layoutX="1072.0" layoutY="63.0" mnemonicParsing="false" onAction="#btnFiltrar_Click" prefHeight="71.0" prefWidth="274.0" styleClass="button" stylesheets="@css/styles.css" text="FILTRAR" textFill="WHITE">
                <font>
                   <Font name="Impact" size="33.0" />
                </font>
             </Button>
-            <Button fx:id="btnCancelar" layoutX="158.0" layoutY="643.0" mnemonicParsing="false" onAction="#btnCancelar_Click" prefHeight="66.0" prefWidth="240.0" styleClass="dropshadowtela" stylesheets="@css/CSS_MARROM_CLARO.css" text="CANCELAR" textFill="WHITE">
+            <Button fx:id="btnCancelar" layoutX="158.0" layoutY="643.0" mnemonicParsing="false" onAction="#btnCancelar_Click" prefHeight="66.0" prefWidth="240.0" styleClass="button" stylesheets="@CSS/styles.css" text="CANCELAR" textFill="WHITE">
                <font>
                   <Font name="Impact" size="33.0" />
                </font>
             </Button>
-            <TableView layoutX="83.0" layoutY="164.0" prefHeight="439.0" prefWidth="1267.0" styleClass="dropshadowtela" stylesheets="@css/CSS_SOMBRA.css" AnchorPane.bottomAnchor="144.0" AnchorPane.leftAnchor="83.0" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="164.0">
+            <TableView layoutX="83.0" layoutY="164.0" prefHeight="439.0" prefWidth="1267.0" AnchorPane.bottomAnchor="144.0" AnchorPane.leftAnchor="83.0" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="164.0">
               <columns>
                 <TableColumn prefWidth="75.0" text="C1" />
                 <TableColumn prefWidth="75.0" text="C2" />
               </columns>
             </TableView>
-            <DatePicker fx:id="dpData" layoutX="595.0" layoutY="54.0" prefHeight="88.0" prefWidth="405.0" style="-fx-background-color: #ffff;" styleClass="dropshadowdate" stylesheets="@css/CSS_SOMBRA.css" />
+            <DatePicker fx:id="dpData" layoutX="595.0" layoutY="54.0" prefHeight="88.0" prefWidth="405.0" styleClass="date-picker" stylesheets="@css/styles.css" />
          </children></AnchorPane>
    </center>
 </BorderPane>

@@ -26,49 +26,70 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e8c4ac;" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="btnCadastrar" layoutX="1019.0" layoutY="590.0" mnemonicParsing="false" onAction="#btnCadastrar_Click" prefHeight="66.0" prefWidth="240.0" styleClass="dropshadowtela" stylesheets="@CSS/CSS_SOMBRA.css" text="CADASTRAR" textFill="WHITE">
+            <Button fx:id="btnCadastrar" layoutX="1019.0" layoutY="590.0" mnemonicParsing="false" onAction="#btnCadastrar_Click" prefHeight="66.0" prefWidth="240.0" styleClass="button" stylesheets="@CSS/styles.css" text="CADASTRAR" textFill="WHITE">
                <font>
                   <Font name="Impact" size="33.0" />
                </font>
             </Button>
-            <TextField fx:id="txtNome" layoutX="350.0" layoutY="116.0" prefHeight="73.0" prefWidth="352.0" style="-fx-background-color: #ffffff;" styleClass="dropshadowtela" stylesheets="@CSS/CSS_SOMBRA.css" />
+            <TextField fx:id="txtNome" layoutX="350.0" layoutY="116.0" prefHeight="73.0" prefWidth="352.0" styleClass="input" stylesheets="@CSS/styles.css">
+               <font>
+                  <Font size="16.0" />
+               </font></TextField>
             <Text layoutX="362.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NOME">
                <font>
                   <Font size="25.0" />
                </font>
             </Text>
-            <TextField fx:id="txtSexo" layoutX="349.0" layoutY="275.0" prefHeight="73.0" prefWidth="352.0" promptText="M ou F" style="-fx-background-color: #ffffff;" styleClass="dropshadowtela" stylesheets="@CSS/CSS_SOMBRA.css" />
+            <TextField fx:id="txtSexo" layoutX="349.0" layoutY="275.0" prefHeight="73.0" prefWidth="352.0" promptText="M ou F" styleClass="input" stylesheets="@CSS/styles.css">
+               <font>
+                  <Font size="16.0" />
+               </font></TextField>
             <Text layoutX="362.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SEXO">
                <font>
                   <Font size="25.0" />
                </font>
             </Text>
-            <TextField fx:id="txtSalario" layoutX="346.0" layoutY="444.0" prefHeight="73.0" prefWidth="352.0" style="-fx-background-color: #ffffff;" styleClass="dropshadowtela" stylesheets="@CSS/CSS_SOMBRA.css" />
+            <TextField fx:id="txtSalario" layoutX="346.0" layoutY="444.0" prefHeight="73.0" prefWidth="352.0" styleClass="input" stylesheets="@CSS/styles.css">
+               <font>
+                  <Font size="16.0" />
+               </font></TextField>
             <Text layoutX="362.0" layoutY="427.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SALÁRIO">
                <font>
                   <Font size="25.0" />
                </font>
             </Text>
-            <TextField fx:id="txtEmail" layoutX="754.0" layoutY="116.0" prefHeight="73.0" prefWidth="352.0" style="-fx-background-color: #ffffff;" styleClass="dropshadowtela" stylesheets="@CSS/CSS_SOMBRA.css" />
+            <TextField fx:id="txtEmail" layoutX="754.0" layoutY="116.0" prefHeight="73.0" prefWidth="352.0" styleClass="input" stylesheets="@CSS/styles.css">
+               <font>
+                  <Font size="16.0" />
+               </font></TextField>
             <Text layoutX="766.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-MAIL">
                <font>
                   <Font size="25.0" />
                </font>
             </Text>
-            <TextField fx:id="txtTelefone" layoutX="753.0" layoutY="276.0" prefHeight="73.0" prefWidth="352.0" style="-fx-background-color: #ffffff;" styleClass="dropshadowtela" stylesheets="@CSS/CSS_SOMBRA.css" />
+            <TextField fx:id="txtTelefone" layoutX="753.0" layoutY="276.0" prefHeight="73.0" prefWidth="352.0" styleClass="input" stylesheets="@CSS/styles.css">
+               <font>
+                  <Font size="16.0" />
+               </font></TextField>
             <Text layoutX="766.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TELEFONE">
                <font>
                   <Font size="25.0" />
                </font>
             </Text>
-            <TextField fx:id="txtEspecialidade" layoutX="750.0" layoutY="445.0" prefHeight="73.0" prefWidth="352.0" style="-fx-background-color: #ffffff;" styleClass="dropshadowtela" stylesheets="@CSS/CSS_SOMBRA.css" />
+            <TextField fx:id="txtEspecialidade" layoutX="750.0" layoutY="445.0" prefHeight="73.0" prefWidth="352.0" styleClass="input" stylesheets="@CSS/styles.css">
+               <font>
+                  <Font size="16.0" />
+               </font></TextField>
             <Text layoutX="766.0" layoutY="427.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ESPECIALIDADE">
                <font>
                   <Font size="25.0" />
                </font>
             </Text>
-            <TextField fx:id="txtId" layoutX="216.0" layoutY="116.0" prefHeight="73.0" prefWidth="94.0" style="-fx-background-color: #ffffff;" styleClass="dropshadowtela" stylesheets="@CSS/CSS_SOMBRA.css" />
-            <Button fx:id="btnPesquisar" layoutX="104.0" layoutY="116.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="98.0" styleClass="dropshadowtela" stylesheets="@CSS/CSS_SOMBRA.css" textFill="WHITE">
+            <TextField fx:id="txtId" layoutX="216.0" layoutY="116.0" prefHeight="73.0" prefWidth="94.0" styleClass="input" stylesheets="@CSS/styles.css">
+               <font>
+                  <Font size="16.0" />
+               </font></TextField>
+            <Button fx:id="btnPesquisar" layoutX="104.0" layoutY="116.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="98.0" styleClass="button" stylesheets="@CSS/styles.css" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="27.0" fitWidth="26.0">
                       <image>
@@ -77,17 +98,17 @@
                   </ImageView>
               </graphic>
             </Button>
-            <Button fx:id="btnAlterar" layoutX="742.0" layoutY="590.0" mnemonicParsing="false" onAction="#btnAlterar_Click" prefHeight="66.0" prefWidth="240.0" styleClass="dropshadowtela" stylesheets="@CSS/CSS_MARROM_CLARO.css" text="ALTERAR" textFill="WHITE">
+            <Button fx:id="btnAlterar" layoutX="742.0" layoutY="590.0" mnemonicParsing="false" onAction="#btnAlterar_Click" prefHeight="66.0" prefWidth="240.0" styleClass="button" stylesheets="@CSS/styles.css" text="ALTERAR" textFill="WHITE">
                <font>
                   <Font name="Impact" size="33.0" />
                </font>
             </Button>
-            <Button fx:id="btnExcluir" layoutX="464.0" layoutY="590.0" mnemonicParsing="false" onAction="#btnExcluir_Click" onMouseClicked="#btnExcluir_Click" prefHeight="66.0" prefWidth="240.0" styleClass="dropshadowtela" stylesheets="@CSS/CSS_MARROM_CLARO.css" text="EXCLUIR" textFill="WHITE">
+            <Button fx:id="btnExcluir" layoutX="464.0" layoutY="590.0" mnemonicParsing="false" onAction="#btnExcluir_Click" onMouseClicked="#btnExcluir_Click" prefHeight="66.0" prefWidth="240.0" styleClass="button" stylesheets="@CSS/styles.css" text="EXCLUIR" textFill="WHITE">
                <font>
                   <Font name="Impact" size="33.0" />
                </font>
             </Button>
-            <Button fx:id="btnCancelar" layoutX="187.0" layoutY="590.0" mnemonicParsing="false" onAction="#btnCancelar_Click" prefHeight="66.0" prefWidth="240.0" styleClass="dropshadowtela" stylesheets="@CSS/CSS_MARROM_CLARO.css" text="CANCELAR" textFill="WHITE">
+            <Button fx:id="btnCancelar" layoutX="187.0" layoutY="590.0" mnemonicParsing="false" onAction="#btnCancelar_Click" prefHeight="66.0" prefWidth="240.0" styleClass="button" stylesheets="@CSS/styles.css" text="CANCELAR" textFill="WHITE">
                <font>
                   <Font name="Impact" size="33.0" />
                </font>

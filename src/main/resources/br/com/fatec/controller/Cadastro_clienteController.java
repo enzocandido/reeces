@@ -211,7 +211,7 @@ public class Cadastro_clienteController implements Initializable {
 
                 txtEndereco.setText(clientePesquisado.getEndereco());
                 
-                btnAlterar.setStyle("-fx-background-color: #331b1b");
+                btnAlterar.setOpacity(1);
                 btnAlterar.setDisable(false);
             } else {
                 limparCampos();
@@ -220,7 +220,7 @@ public class Cadastro_clienteController implements Initializable {
                 alert.setHeaderText(null);
                 alert.setContentText("Cliente não encontrado.");
                 alert.showAndWait();
-                btnAlterar.setStyle("-fx-background-color: #614741;");
+                btnAlterar.setOpacity(0.5);
             }
         } catch (NumberFormatException | SQLException e) {
             e.printStackTrace();
@@ -245,19 +245,20 @@ public class Cadastro_clienteController implements Initializable {
                 int idCliente = Integer.parseInt(idClienteString);
                 if (idCliente > 0) {
                     btnExcluir.setDisable(false);
-                    btnExcluir.setStyle("-fx-background-color: #331b1b");
+                    btnExcluir.setOpacity(1);
                 } else {
-                    btnAlterar.setStyle("-fx-background-color: #614741;");
-                    btnExcluir.setStyle("-fx-background-color: #614741;");
+                    btnAlterar.setOpacity(0.5);
+                    btnExcluir.setOpacity(0.5);
                 }
             } catch (NumberFormatException e) {
-                btnAlterar.setStyle("-fx-background-color: #614741;");
-                btnExcluir.setStyle("-fx-background-color: #614741;");
+                btnAlterar.setOpacity(0.5);
+                btnExcluir.setOpacity(0.5);
             }
         } else {
             btnExcluir.setDisable(true);
             btnAlterar.setDisable(true);
-            btnExcluir.setStyle("-fx-background-color: #614741;");
+            btnExcluir.setOpacity(0.5);
+            btnAlterar.setOpacity(0.5);
         }
     }
 }
