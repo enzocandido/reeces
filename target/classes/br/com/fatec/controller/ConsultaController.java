@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
-package br.com.fatec;
+package br.com.fatec.controller;
 
 import java.io.IOException;
 import java.net.URL;
@@ -37,7 +37,7 @@ public class ConsultaController implements Initializable {
 
     @FXML
     private void btn_cancelar_Clicked(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("menu.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/br/com/fatec/menu.fxml"));
          Parent root = loader.load();
          Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
          stage.setScene(new Scene(root));

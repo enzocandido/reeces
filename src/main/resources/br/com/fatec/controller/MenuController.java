@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
-package br.com.fatec;
+package br.com.fatec.controller;
 
 import java.io.IOException;
 import java.net.URL;
@@ -45,7 +45,7 @@ public class MenuController implements Initializable {
 
     @FXML
     private void btn_cadastrar_Clicked(ActionEvent event) throws IOException {
-         FXMLLoader loader = new FXMLLoader(getClass().getResource("cadastro_cliente.fxml"));
+         FXMLLoader loader = new FXMLLoader(getClass().getResource("/br/com/fatec/cadastro_cliente.fxml"));
          Parent root = loader.load();
          Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
          stage.setScene(new Scene(root));
@@ -54,7 +54,7 @@ public class MenuController implements Initializable {
 
     @FXML
     private void btn_gerenciar_Clicked(ActionEvent event) throws IOException {
-         FXMLLoader loader = new FXMLLoader(getClass().getResource("gerenciamento.fxml"));
+         FXMLLoader loader = new FXMLLoader(getClass().getResource("/br/com/fatec/gerenciamento.fxml"));
          Parent root = loader.load();
          Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
          stage.setScene(new Scene(root));
@@ -65,7 +65,7 @@ public class MenuController implements Initializable {
 
     @FXML
     private void btn_barbeiros_Clicked(ActionEvent event) throws IOException {
-         FXMLLoader loader = new FXMLLoader(getClass().getResource("cadastro_barbeiros.fxml"));
+         FXMLLoader loader = new FXMLLoader(getClass().getResource("/br/com/fatec/cadastro_barbeiros.fxml"));
          Parent root = loader.load();
          Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
          stage.setScene(new Scene(root));
@@ -74,7 +74,7 @@ public class MenuController implements Initializable {
 
     @FXML
     private void btn_agendar_Clicked(ActionEvent event) throws IOException {
-         FXMLLoader loader = new FXMLLoader(getClass().getResource("agendamento.fxml"));
+         FXMLLoader loader = new FXMLLoader(getClass().getResource("/br/com/fatec/agendamento.fxml"));
          Parent root = loader.load();
          Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
          stage.setScene(new Scene(root));
@@ -83,7 +83,7 @@ public class MenuController implements Initializable {
 
     @FXML
     private void btn_consultar_Clicked(ActionEvent event) throws IOException {
-         FXMLLoader loader = new FXMLLoader(getClass().getResource("consulta.fxml"));
+         FXMLLoader loader = new FXMLLoader(getClass().getResource("/br/com/fatec/consulta.fxml"));
          Parent root = loader.load();
          Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
          stage.setScene(new Scene(root));
