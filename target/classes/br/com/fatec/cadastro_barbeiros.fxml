@@ -24,64 +24,64 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e8c4ac;" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="1019.0" layoutY="592.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="240.0" styleClass="dropshadowtela" stylesheets="@CSS_SOMBRA.css" text="CADASTRAR" textFill="WHITE">
+            <Button layoutX="1019.0" layoutY="592.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="240.0" styleClass="dropshadowtela" stylesheets="@CSS/CSS_SOMBRA.css" text="CADASTRAR" textFill="WHITE">
                <font>
                   <Font name="Impact" size="33.0" />
                </font>
             </Button>
-            <TextField layoutX="350.0" layoutY="117.0" prefHeight="73.0" prefWidth="352.0" style="-fx-background-color: #ffffff;" styleClass="dropshadowtela" stylesheets="@CSS_SOMBRA.css" />
+            <TextField layoutX="350.0" layoutY="117.0" prefHeight="73.0" prefWidth="352.0" style="-fx-background-color: #ffffff;" styleClass="dropshadowtela" stylesheets="@CSS/CSS_SOMBRA.css" />
             <Text layoutX="362.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NOME">
                <font>
                   <Font size="25.0" />
                </font>
             </Text>
-            <TextField layoutX="349.0" layoutY="275.0" prefHeight="73.0" prefWidth="352.0" style="-fx-background-color: #ffffff;" styleClass="dropshadowtela" stylesheets="@CSS_SOMBRA.css" />
+            <TextField layoutX="349.0" layoutY="275.0" prefHeight="73.0" prefWidth="352.0" style="-fx-background-color: #ffffff;" styleClass="dropshadowtela" stylesheets="@CSS/CSS_SOMBRA.css" />
             <Text layoutX="361.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SEXO">
                <font>
                   <Font size="25.0" />
                </font>
             </Text>
-            <TextField layoutX="346.0" layoutY="444.0" prefHeight="73.0" prefWidth="352.0" style="-fx-background-color: #ffffff;" styleClass="dropshadowtela" stylesheets="@CSS_SOMBRA.css" />
+            <TextField layoutX="346.0" layoutY="444.0" prefHeight="73.0" prefWidth="352.0" style="-fx-background-color: #ffffff;" styleClass="dropshadowtela" stylesheets="@CSS/CSS_SOMBRA.css" />
             <Text layoutX="358.0" layoutY="426.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SALÁRIO">
                <font>
                   <Font size="25.0" />
                </font>
             </Text>
-            <TextField layoutX="754.0" layoutY="118.0" prefHeight="73.0" prefWidth="352.0" style="-fx-background-color: #ffffff;" styleClass="dropshadowtela" stylesheets="@CSS_SOMBRA.css" />
+            <TextField layoutX="754.0" layoutY="118.0" prefHeight="73.0" prefWidth="352.0" style="-fx-background-color: #ffffff;" styleClass="dropshadowtela" stylesheets="@CSS/CSS_SOMBRA.css" />
             <Text layoutX="766.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-MAIL">
                <font>
                   <Font size="25.0" />
                </font>
             </Text>
-            <TextField layoutX="753.0" layoutY="276.0" prefHeight="73.0" prefWidth="352.0" style="-fx-background-color: #ffffff;" styleClass="dropshadowtela" stylesheets="@CSS_SOMBRA.css" />
+            <TextField layoutX="753.0" layoutY="276.0" prefHeight="73.0" prefWidth="352.0" style="-fx-background-color: #ffffff;" styleClass="dropshadowtela" stylesheets="@CSS/CSS_SOMBRA.css" />
             <Text layoutX="765.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TELEFONE">
                <font>
                   <Font size="25.0" />
                </font>
             </Text>
-            <TextField layoutX="750.0" layoutY="445.0" prefHeight="73.0" prefWidth="352.0" style="-fx-background-color: #ffffff;" styleClass="dropshadowtela" stylesheets="@CSS_SOMBRA.css" />
+            <TextField layoutX="750.0" layoutY="445.0" prefHeight="73.0" prefWidth="352.0" style="-fx-background-color: #ffffff;" styleClass="dropshadowtela" stylesheets="@CSS/CSS_SOMBRA.css" />
             <Text layoutX="762.0" layoutY="427.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ESPECIALIDADE">
                <font>
                   <Font size="25.0" />
                </font>
             </Text>
-            <TextField layoutX="216.0" layoutY="116.0" prefHeight="73.0" prefWidth="94.0" style="-fx-background-color: #ffffff;" styleClass="dropshadowtela" stylesheets="@CSS_SOMBRA.css" />
-            <Button layoutX="104.0" layoutY="121.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="98.0" styleClass="dropshadowtela" stylesheets="@CSS_SOMBRA.css" text="s" textFill="WHITE">
+            <TextField layoutX="216.0" layoutY="116.0" prefHeight="73.0" prefWidth="94.0" style="-fx-background-color: #ffffff;" styleClass="dropshadowtela" stylesheets="@CSS/CSS_SOMBRA.css" />
+            <Button layoutX="104.0" layoutY="121.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="98.0" styleClass="dropshadowtela" stylesheets="@CSS/CSS_SOMBRA.css" text="s" textFill="WHITE">
                <font>
                   <Font name="Impact" size="33.0" />
                </font>
             </Button>
-            <Button layoutX="742.0" layoutY="592.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="240.0" styleClass="dropshadowtela" stylesheets="@CSS_MARROM_CLARO.css" text="ALTERAR" textFill="WHITE">
+            <Button layoutX="742.0" layoutY="592.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="240.0" styleClass="dropshadowtela" stylesheets="@CSS/CSS_MARROM_CLARO.css" text="ALTERAR" textFill="WHITE">
                <font>
                   <Font name="Impact" size="33.0" />
                </font>
             </Button>
-            <Button fx:id="btn_excluir" layoutX="464.0" layoutY="591.0" mnemonicParsing="false" onMouseClicked="#btn_excluir" prefHeight="66.0" prefWidth="240.0" styleClass="dropshadowtela" stylesheets="@CSS_MARROM_CLARO.css" text="EXCLUIR" textFill="WHITE">
+            <Button fx:id="btn_excluir" layoutX="464.0" layoutY="591.0" mnemonicParsing="false" onMouseClicked="#btn_excluir" prefHeight="66.0" prefWidth="240.0" styleClass="dropshadowtela" stylesheets="@CSS/CSS_MARROM_CLARO.css" text="EXCLUIR" textFill="WHITE">
                <font>
                   <Font name="Impact" size="33.0" />
                </font>
             </Button>
-            <Button fx:id="btn_cancelar" layoutX="187.0" layoutY="590.0" mnemonicParsing="false" onAction="#btn_cancelar_Clicked" prefHeight="66.0" prefWidth="240.0" styleClass="dropshadowtela" stylesheets="@CSS_MARROM_CLARO.css" text="CANCELAR" textFill="WHITE">
+            <Button fx:id="btn_cancelar" layoutX="187.0" layoutY="590.0" mnemonicParsing="false" onAction="#btn_cancelar_Clicked" prefHeight="66.0" prefWidth="240.0" styleClass="dropshadowtela" stylesheets="@CSS/CSS_MARROM_CLARO.css" text="CANCELAR" textFill="WHITE">
                <font>
                   <Font name="Impact" size="33.0" />
                </font>
