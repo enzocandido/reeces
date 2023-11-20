@@ -21,6 +21,10 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+import javafx.scene.Cursor;
+import javafx.util.Duration;
+import javafx.animation.FadeTransition;
+import javafx.animation.ScaleTransition;
 
 public class GerenciamentoController implements Initializable {
     
@@ -58,6 +62,11 @@ public class GerenciamentoController implements Initializable {
             e.printStackTrace();
         }
         configurarComboBox();
+        animacaoBotao(btnCadastrar);
+        animacaoBotao(btnExcluir);
+        animacaoBotao(btnAlterar);
+        animacaoBotao(btnPesquisar);
+        animacaoBotao(btnCancelar);
     }    
     
      private void carregarDadosDoBanco() throws SQLException {
@@ -136,4 +145,44 @@ public class GerenciamentoController implements Initializable {
     @FXML
     private void btnExcluir_Click(ActionEvent event) {
     }
+
+    private void animacaoBotao(Button button) {
+        ScaleTransition scaleIn = new ScaleTransition(Duration.millis(100), button);
+        scaleIn.setFromX(1.0);
+        scaleIn.setFromY(1.0);
+        scaleIn.setToX(1.1);
+        scaleIn.setToY(1.1);
+
+        ScaleTransition scaleOut = new ScaleTransition(Duration.millis(100), button);
+        scaleOut.setFromX(1.1);
+        scaleOut.setFromY(1.1);
+        scaleOut.setToX(1.0);
+        scaleOut.setToY(1.0);
+
+        button.setOnMouseEntered(event -> {
+            scaleIn.play();
+            alterarAparenciaCursor(button, Cursor.HAND);
+        });
+
+        button.setOnMouseExited(event -> {
+            scaleOut.play();
+            restaurarAparenciaCursor(button);
+        });
+    }
+
+    private void animacaoTransicao(Parent root) {
+        FadeTransition fadeIn = new FadeTransition(Duration.millis(200), root);
+        fadeIn.setFromValue(0.0);
+        fadeIn.setToValue(1.0);
+        fadeIn.play();
+    }
+
+    private void alterarAparenciaCursor(Button button, Cursor cursor) {
+        button.setCursor(cursor);
+    }
+
+    private void restaurarAparenciaCursor(Button button) {
+        button.setCursor(Cursor.DEFAULT);
+    }
+
 }

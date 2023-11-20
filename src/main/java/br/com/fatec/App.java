@@ -11,9 +11,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.sql.SQLException;
 
-/**
- * JavaFX App
- */
 public class App extends Application {
 
     private static Scene scene;
@@ -24,6 +21,7 @@ public class App extends Application {
         scene = new Scene(loadFXML("menu"), 1440, 900);
         this.stage = stage;
         stage.setScene(scene);
+        stage.setTitle("REECES");
         stage.setResizable(false);
         stage.show();
     }
