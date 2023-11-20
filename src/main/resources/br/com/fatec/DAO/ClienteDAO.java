@@ -6,14 +6,11 @@ import br.com.fatec.banco.Banco;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class ClienteDAO implements DAO<Clientes> {
-
     private Clientes cliente;
     private PreparedStatement pst;
     private ResultSet rs;
@@ -47,7 +44,6 @@ public class ClienteDAO implements DAO<Clientes> {
 
         return inseriu;
     }
-
 
     @Override
     public boolean remove(Clientes dado) throws SQLException {
@@ -101,9 +97,7 @@ public class ClienteDAO implements DAO<Clientes> {
 
     @Override
     public Clientes buscaID(Clientes dado) throws SQLException {
-        // Implemente a busca por ID se necessário
-
-        return null;
+       return null;
     }
 
     public Clientes pesquisa(String filtro) throws SQLException {
@@ -128,8 +122,6 @@ public class ClienteDAO implements DAO<Clientes> {
             cliente.setEmail(rs.getString("email"));
             cliente.setSexo(rs.getString("sexo"));
             cliente.setTelefone(rs.getString("telefone"));
-
-            // Convertendo java.sql.Date para java.util.Date
             java.util.Date utilDate = new java.util.Date(rs.getDate("data_nascimento").getTime());
             cliente.setDataNascimento(utilDate);
 
@@ -137,7 +129,7 @@ public class ClienteDAO implements DAO<Clientes> {
         }
 
         Banco.desconectar();
-
+        
         return cliente;
     }
 
@@ -146,6 +138,5 @@ public class ClienteDAO implements DAO<Clientes> {
     public Collection<Clientes> lista(String criterio) throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-
 
 }

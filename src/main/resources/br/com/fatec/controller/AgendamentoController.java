@@ -1,18 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package br.com.fatec.controller;
 
-import br.com.fatec.DAO.AgendamentoDAO;
 import br.com.fatec.banco.Banco;
-import br.com.fatec.model.Agendamento;
 import br.com.fatec.model.Servicos;
-import java.net.URL;
 import java.sql.SQLException;
-import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.PreparedStatement;
@@ -34,11 +24,6 @@ import javafx.scene.control.ListView;
 import javafx.util.Callback;
 import javafx.util.StringConverter;
 
-/**
- * FXML Controller class
- *
- * @author guilh
- */
 public class AgendamentoController implements Initializable {
     
     private PreparedStatement pst;
@@ -61,17 +46,12 @@ public class AgendamentoController implements Initializable {
     @FXML
     private Button btnCancelar;
     @FXML
-    private TextField txtDataHorario;
-    @FXML
     private TextField txtTotal;
     @FXML
     private ComboBox<Servicos> cmbServicos;
     @FXML
     private Button btnPesquisar;
 
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
@@ -80,7 +60,6 @@ public class AgendamentoController implements Initializable {
             configurarOuvinteSelecao();
         } catch (SQLException e) {
             e.printStackTrace();
-            // Lide com a exceção de acordo com a sua necessidade
         }
     }
 
@@ -106,7 +85,6 @@ public class AgendamentoController implements Initializable {
     }
 
     private void configurarComboBox() {
-        // Configurar uma fábrica de células para exibir apenas o nome do serviço
         cmbServicos.setCellFactory(new Callback<ListView<Servicos>, ListCell<Servicos>>() {
             @Override
             public ListCell<Servicos> call(ListView<Servicos> param) {
@@ -124,7 +102,6 @@ public class AgendamentoController implements Initializable {
             }
         });
 
-        // Configurar o texto exibido no botão do ComboBox
         cmbServicos.setButtonCell(new ListCell<Servicos>() {
             @Override
             protected void updateItem(Servicos item, boolean empty) {
@@ -145,16 +122,14 @@ public class AgendamentoController implements Initializable {
 
             @Override
             public Servicos fromString(String string) {
-                return null; // Não necessário para exibir o nome
+                return null;
             }
         });
     }
     
     private void configurarOuvinteSelecao() {
-        // Adicionar um ouvinte de mudança de seleção ao ComboBox
         cmbServicos.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
-                // Atualizar o txtValor com o valor do serviço selecionado
                 txtTotal.setText("R$ " + String.valueOf(newValue.getValor()));
             }
         });

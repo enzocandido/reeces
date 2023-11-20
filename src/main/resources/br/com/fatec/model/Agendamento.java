@@ -1,12 +1,12 @@
 package br.com.fatec.model;
 
-import java.sql.Timestamp; // Importe para manipulação de data e hora
+import java.sql.Timestamp;
 import java.util.Objects;
 
 public class Agendamento {
-    private int id; // Adicionei o campo id, pois parece ser necessário para o DAO
+    private int id;
     private String nomeCliente;
-    private Timestamp dataHorario; // Alteração do tipo para Timestamp
+    private Timestamp dataHorario;
     private String profissional;
     private String unidade;
     private float valor;

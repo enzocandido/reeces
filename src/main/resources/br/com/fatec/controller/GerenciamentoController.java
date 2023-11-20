@@ -1,12 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package br.com.fatec.controller;
 
-import br.com.fatec.DAO.AgendamentoDAO;
 import br.com.fatec.banco.Banco;
-import br.com.fatec.model.Agendamento;
 import br.com.fatec.model.Servicos;
 import java.io.IOException;
 import java.net.URL;
@@ -14,8 +8,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -30,11 +22,6 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
-/**
- * FXML Controller class
- *
- * @author guilh
- */
 public class GerenciamentoController implements Initializable {
     
     private PreparedStatement pst;
@@ -59,13 +46,10 @@ public class GerenciamentoController implements Initializable {
     @FXML
     private TextField txtHorario;
     @FXML
-    private ComboBox<?> cmbUnidade;
-    @FXML
     private TextField txtCliente;
+    @FXML
+    private TextField txtUnidade;
 
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
@@ -98,7 +82,6 @@ public class GerenciamentoController implements Initializable {
     }
 
     private void configurarComboBox() {
-        // Configurar uma fábrica de células para exibir apenas o nome do serviço
         cmbServicos.setCellFactory(new Callback<ListView<Servicos>, ListCell<Servicos>>() {
             @Override
             public ListCell<Servicos> call(ListView<Servicos> param) {
@@ -116,7 +99,6 @@ public class GerenciamentoController implements Initializable {
             }
         });
 
-        // Configurar o texto exibido no botão do ComboBox
         cmbServicos.setButtonCell(new ListCell<Servicos>() {
             @Override
             protected void updateItem(Servicos item, boolean empty) {

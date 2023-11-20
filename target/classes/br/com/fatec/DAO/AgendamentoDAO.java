@@ -11,7 +11,6 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 public class AgendamentoDAO implements DAO<Agendamento> {
-
     private Agendamento agendamento;
     private PreparedStatement pst;
     private ResultSet rs;
@@ -101,16 +100,12 @@ public class AgendamentoDAO implements DAO<Agendamento> {
 
     @Override
     public Agendamento buscaID(Agendamento dado) throws SQLException {
-        // Implemente a busca por ID se necessário
-
         return null;
     }
 
     @Override
     public Collection<Agendamento> lista(String filtro) throws SQLException {
         Collection<Agendamento> listagem = new ArrayList<>();
-        
-
         agendamento = null;
 
         String sql = "SELECT * FROM agendamentos ";

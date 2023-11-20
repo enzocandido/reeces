@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.fatec.banco;
 
 import java.sql.DriverManager;
@@ -22,10 +17,8 @@ public class Banco {
         porta = 3306;
     }
 
-    //métodos
     public static void conectar() throws SQLException {
-        String url = "jdbc:mysql://" + servidor +
-                     ":" + porta + "/" + bancoDados;
+        String url = "jdbc:mysql://" + servidor + ":" + porta + "/" + bancoDados;
         conexao = DriverManager.getConnection(url, usuario, senha);
     }
 
@@ -33,8 +26,7 @@ public class Banco {
         conexao.close();
     }
 
-    public static java.sql.Connection obterConexao() 
-                throws SQLException {
+    public static java.sql.Connection obterConexao() throws SQLException {
         if (conexao == null) {
             throw new SQLException("Conexão está fechada..");
         } else {

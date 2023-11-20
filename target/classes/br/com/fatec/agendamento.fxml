@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -32,20 +33,20 @@
                   <Font name="Impact" size="33.0" />
                </font>
             </Button>
-            <TextField fx:id="txtCliente" layoutX="154.0" layoutY="99.0" prefHeight="73.0" prefWidth="373.0" style="-fx-background-color: #ffffff;" styleClass="dropshadowtela" stylesheets="@CSS/CSS_SOMBRA.css" />
+            <TextField fx:id="txtCliente" layoutX="154.0" layoutY="100.0" prefHeight="73.0" prefWidth="373.0" style="-fx-background-color: #ffffff;" styleClass="dropshadowtela" stylesheets="@CSS/CSS_SOMBRA.css" />
             <Text layoutX="166.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NOME DO CLIENTE">
                <font>
                   <Font size="25.0" />
                </font>
             </Text>
-            <TextField fx:id="txtProfissional" layoutX="153.0" layoutY="257.0" prefHeight="73.0" prefWidth="375.0" style="-fx-background-color: #ffffff;" styleClass="dropshadowtela" stylesheets="@CSS/CSS_SOMBRA.css" />
-            <Text layoutX="161.0" layoutY="239.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PREFERÊNCIA DE PROFISSIONAL">
+            <TextField fx:id="txtProfissional" layoutX="154.0" layoutY="257.0" prefHeight="73.0" prefWidth="375.0" style="-fx-background-color: #ffffff;" styleClass="dropshadowtela" stylesheets="@CSS/CSS_SOMBRA.css" />
+            <Text layoutX="166.0" layoutY="239.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PREFERÊNCIA DE PROFISSIONAL">
                <font>
                   <Font size="25.0" />
                </font>
             </Text>
-            <TextField fx:id="txtUnidade" layoutX="150.0" layoutY="426.0" prefHeight="73.0" prefWidth="379.0" style="-fx-background-color: #ffffff;" styleClass="dropshadowtela" stylesheets="@CSS/CSS_SOMBRA.css" />
-            <Text layoutX="162.0" layoutY="408.0" strokeType="OUTSIDE" strokeWidth="0.0" text="UNIDADE">
+            <TextField fx:id="txtUnidade" layoutX="154.0" layoutY="437.0" prefHeight="73.0" prefWidth="379.0" style="-fx-background-color: #ffffff;" styleClass="dropshadowtela" stylesheets="@CSS/CSS_SOMBRA.css" />
+            <Text layoutX="166.0" layoutY="421.0" strokeType="OUTSIDE" strokeWidth="0.0" text="UNIDADE">
                <font>
                   <Font size="25.0" />
                </font>
@@ -65,7 +66,7 @@
                   <Font name="Impact" size="33.0" />
                </font>
             </Button>
-            <Button fx:id="btnExcluir" layoutX="464.0" layoutY="591.0" mnemonicParsing="false" onAction="#btnExcluir_Click" prefHeight="66.0" prefWidth="240.0" styleClass="dropshadowtela" stylesheets="@CSS/CSS_MARROM_CLARO.css" text="EXCLUIR" textFill="WHITE">
+            <Button fx:id="btnExcluir" layoutX="464.0" layoutY="592.0" mnemonicParsing="false" onAction="#btnExcluir_Click" prefHeight="66.0" prefWidth="240.0" styleClass="dropshadowtela" stylesheets="@CSS/CSS_MARROM_CLARO.css" text="EXCLUIR" textFill="WHITE">
                <font>
                   <Font name="Impact" size="33.0" />
                </font>
@@ -75,23 +76,22 @@
                   <Font size="25.0" />
                </font>
             </Text>
-            <TextField fx:id="txtDataHorario" layoutX="571.0" layoutY="99.0" prefHeight="73.0" prefWidth="373.0" style="-fx-background-color: #ffffff;" styleClass="dropshadowtela" stylesheets="@CSS/CSS_SOMBRA.css" />
-            <Text layoutX="583.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DATA E HORÁRIO">
+            <Text layoutX="583.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DATA">
                <font>
                   <Font size="25.0" />
                </font>
             </Text>
-            <TextField fx:id="txtTotal" editable="false" layoutX="573.0" layoutY="250.0" prefHeight="89.0" prefWidth="373.0" style="-fx-background-color: #e29452;" styleClass="dropshadowtela" stylesheets="@CSS/CSS_SOMBRA.css">
+            <TextField fx:id="txtTotal" editable="false" layoutX="571.0" layoutY="257.0" prefHeight="73.0" prefWidth="375.0" promptText="R$ 00.0" style="-fx-background-color: #e29452;" styleClass="dropshadowtela" stylesheets="@CSS/CSS_SOMBRA.css">
                <font>
                   <Font name="System Bold" size="22.0" />
                </font></TextField>
-            <ComboBox fx:id="cmbServicos" layoutX="989.0" layoutY="100.0" prefHeight="71.0" prefWidth="311.0" style="-fx-background-color: #ffffff;" styleClass="dropshadowtela" stylesheets="@CSS/CSS_SOMBRA.css" />
+            <ComboBox fx:id="cmbServicos" layoutX="982.0" layoutY="100.0" prefHeight="73.0" prefWidth="361.0" style="-fx-background-color: #ffffff;" styleClass="dropshadowtela" stylesheets="@CSS/CSS_SOMBRA.css" />
             <Text layoutX="999.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SERVIÇO">
                <font>
                   <Font size="25.0" />
                </font>
             </Text>
-            <Text layoutX="583.0" layoutY="236.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TOTAL">
+            <Text layoutX="583.0" layoutY="239.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TOTAL">
                <font>
                   <Font size="25.0" />
                </font>
@@ -101,6 +101,7 @@
                   <Font name="Impact" size="33.0" />
                </font>
             </Button>
+            <DatePicker layoutX="571.0" layoutY="100.0" prefHeight="73.0" prefWidth="373.0" style="-fx-background-color: #fff;" styleClass="dropshadowdate" stylesheets="@css/CSS_SOMBRA.css" />
          </children></AnchorPane>
    </center>
 </BorderPane>
