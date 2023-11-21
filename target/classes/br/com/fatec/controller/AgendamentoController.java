@@ -6,9 +6,6 @@ import br.com.fatec.model.Agendamento;
 import br.com.fatec.model.Servicos;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
-import java.text.ParseException;
-import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -17,7 +14,6 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
 import java.util.ResourceBundle;
-import javafx.animation.FadeTransition;
 import javafx.animation.ScaleTransition;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -165,7 +161,6 @@ public class AgendamentoController implements Initializable {
             e.printStackTrace();
         }
     }
-
 
     private void limparCampos() {
         txtCliente.clear();
