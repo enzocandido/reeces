@@ -18,81 +18,31 @@ import javafx.util.Duration;
 
 public class MenuController implements Initializable {
 
-    @FXML
     private Button btn_cadastrar;
-    @FXML
     private Button btn_gerenciar;
-    @FXML
     private Button btn_barbeiros;
-    @FXML
     private Button btn_agendar;
-    @FXML
     private Button btn_consultar;
+    @FXML
+    private Button btnClientes;
+    @FXML
+    private Button btnRecepcionista;
+    @FXML
+    private Button btnBarbeiros;
+    @FXML
+    private Button btnAgendamentos;
+    @FXML
+    private Button btnConsultar;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        animacaoBotao(btn_cadastrar);
-        animacaoBotao(btn_gerenciar);
-        animacaoBotao(btn_barbeiros);
-        animacaoBotao(btn_agendar);
-        animacaoBotao(btn_consultar);
+        animacaoBotao(btnClientes);
+        animacaoBotao(btnRecepcionista);
+        animacaoBotao(btnBarbeiros);
+        animacaoBotao(btnAgendamentos);
+        animacaoBotao(btnConsultar);
     }    
-
-    @FXML
-    private void btn_cadastrar_Clicked(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/br/com/fatec/cadastro_cliente.fxml"));
-        Parent root = loader.load();
-        animacaoTransicao(root);
-
-        Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.show();
-    }
-
-    @FXML
-    private void btn_gerenciar_Clicked(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/br/com/fatec/gerenciamento.fxml"));
-        Parent root = loader.load();
-        animacaoTransicao(root);
-
-        Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.show();
-    }
-
-    @FXML
-    private void btn_barbeiros_Clicked(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/br/com/fatec/cadastro_barbeiros.fxml"));
-        Parent root = loader.load();
-        animacaoTransicao(root);
-
-        Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.show();
-    }
-
-    @FXML
-    private void btn_agendar_Clicked(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/br/com/fatec/agendamento.fxml"));
-        Parent root = loader.load();
-        animacaoTransicao(root);
-
-        Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.show();
-    }
-
-    @FXML
-    private void btn_consultar_Clicked(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/br/com/fatec/consulta.fxml"));
-        Parent root = loader.load();
-        animacaoTransicao(root);
-
-        Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.show();
-    }
-    
+  
     private void animacaoBotao(Button button) {
         ScaleTransition scaleIn = new ScaleTransition(Duration.millis(100), button);
         scaleIn.setFromX(1.0);
@@ -130,5 +80,60 @@ public class MenuController implements Initializable {
 
     private void restaurarAparenciaCursor(Button button) {
         button.setCursor(Cursor.DEFAULT);
+    }
+
+    @FXML
+    private void btnClientes_Click(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/br/com/fatec/cadastro_cliente.fxml"));
+        Parent root = loader.load();
+        animacaoTransicao(root);
+
+        Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+
+    @FXML
+    private void btnRecepcionista_Click(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/br/com/fatec/cadastro_recepcionista.fxml"));
+        Parent root = loader.load();
+        animacaoTransicao(root);
+
+        Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+
+    @FXML
+    private void btnBarbeiros_Click(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/br/com/fatec/cadastro_barbeiros.fxml"));
+        Parent root = loader.load();
+        animacaoTransicao(root);
+
+        Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+
+    @FXML
+    private void btnAgendamentos_Click(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/br/com/fatec/agendamento.fxml"));
+        Parent root = loader.load();
+        animacaoTransicao(root);
+
+        Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+
+    @FXML
+    private void btnConsultar_Click(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/br/com/fatec/consulta.fxml"));
+        Parent root = loader.load();
+        animacaoTransicao(root);
+
+        Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 }

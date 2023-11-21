@@ -33,8 +33,6 @@ public class Cadastro_barbeirosController implements Initializable {
     @FXML
     private TextField txtTelefone;
     @FXML
-    private TextField txtEspecialidade;
-    @FXML
     private TextField txtId;
     @FXML
     private Button btnPesquisar;

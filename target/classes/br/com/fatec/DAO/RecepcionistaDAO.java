@@ -1,6 +1,6 @@
 package br.com.fatec.DAO;
 
-import br.com.fatec.model.Clientes;
+import br.com.fatec.model.Recepcionista;
 import br.com.fatec.banco.Banco;
 
 import java.sql.PreparedStatement;
@@ -10,20 +10,20 @@ import java.util.Collection;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
-public class ClienteDAO implements DAO<Clientes> {
-    private Clientes cliente;
+public class RecepcionistaDAO implements DAO<Recepcionista> {
+    private Recepcionista recepcionista;
     private PreparedStatement pst;
     private ResultSet rs;
 
     DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 
     @Override
-    public boolean insere(Clientes dado) throws SQLException {
+    public boolean insere(Recepcionista dado) throws SQLException {
         boolean inseriu;
 
         Banco.conectar();
 
-        String sql = "INSERT INTO clientes (nome, email, sexo, telefone, data_nascimento, endereco) VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO recepcionistas (nome, email, sexo, telefone, salario) VALUES (?, ?, ?, ?, ?)";
 
         pst = Banco.obterConexao().prepareStatement(sql);
 
@@ -31,9 +31,7 @@ public class ClienteDAO implements DAO<Clientes> {
         pst.setString(2, dado.getEmail());
         pst.setString(3, dado.getSexo());
         pst.setString(4, dado.getTelefone());
-        pst.setDate(5, new java.sql.Date(dado.getDataNascimento().getTime()));
-        pst.setString(6, dado.getEndereco());
-
+        pst.setDouble(5, dado.getSalario());
 
         if (pst.executeUpdate() > 0)
             inseriu = true;
@@ -46,12 +44,12 @@ public class ClienteDAO implements DAO<Clientes> {
     }
 
     @Override
-    public boolean remove(Clientes dado) throws SQLException {
+    public boolean remove(Recepcionista dado) throws SQLException {
         boolean removeu;
 
         Banco.conectar();
 
-        String sql = "DELETE FROM clientes WHERE id = ?";
+        String sql = "DELETE FROM recepcionistas WHERE id = ?";
 
         pst = Banco.obterConexao().prepareStatement(sql);
 
@@ -68,12 +66,12 @@ public class ClienteDAO implements DAO<Clientes> {
     }
 
     @Override
-    public boolean altera(Clientes dado) throws SQLException {
+    public boolean altera(Recepcionista dado) throws SQLException {
         boolean alterou;
 
         Banco.conectar();
 
-        String sql = "UPDATE clientes SET nome = ?, email = ?, sexo = ?, telefone = ?, data_nascimento = ?, endereco = ? WHERE id = ?";
+        String sql = "UPDATE recepcionistas SET nome = ?, email = ?, sexo = ?, telefone = ?, salario = ? WHERE id = ?";
 
         pst = Banco.obterConexao().prepareStatement(sql);
 
@@ -81,9 +79,8 @@ public class ClienteDAO implements DAO<Clientes> {
         pst.setString(2, dado.getEmail());
         pst.setString(3, dado.getSexo());
         pst.setString(4, dado.getTelefone());
-        pst.setDate(5, new java.sql.Date(dado.getDataNascimento().getTime()));
-        pst.setString(6, dado.getEndereco());
-        pst.setInt(7, dado.getId());
+        pst.setDouble(5, dado.getSalario());
+        pst.setInt(6, dado.getId());
 
         if (pst.executeUpdate() > 0)
             alterou = true;
@@ -96,14 +93,14 @@ public class ClienteDAO implements DAO<Clientes> {
     }
 
     @Override
-    public Clientes buscaID(Clientes dado) throws SQLException {
+    public Recepcionista buscaID(Recepcionista dado) throws SQLException {
        return null;
     }
 
-    public Clientes pesquisa(String filtro) throws SQLException {
-        Clientes cliente = null;
+    public Recepcionista pesquisa(String filtro) throws SQLException {
+        Recepcionista recepcionista = null;
 
-        String sql = "SELECT * FROM clientes ";
+        String sql = "SELECT * FROM recepcionistas ";
 
         if (filtro.length() != 0) {
             sql += "WHERE " + filtro;
@@ -116,26 +113,22 @@ public class ClienteDAO implements DAO<Clientes> {
         rs = pst.executeQuery();
 
         if (rs.next()) {
-            cliente = new Clientes();
-            cliente.setId(rs.getInt("id"));
-            cliente.setNome(rs.getString("nome"));
-            cliente.setEmail(rs.getString("email"));
-            cliente.setSexo(rs.getString("sexo"));
-            cliente.setTelefone(rs.getString("telefone"));
-            java.util.Date utilDate = new java.util.Date(rs.getDate("data_nascimento").getTime());
-            cliente.setDataNascimento(utilDate);
-
-            cliente.setEndereco(rs.getString("endereco"));
+            recepcionista = new Recepcionista();
+            recepcionista.setId(rs.getInt("id"));
+            recepcionista.setNome(rs.getString("nome"));
+            recepcionista.setEmail(rs.getString("email"));
+            recepcionista.setSexo(rs.getString("sexo"));
+            recepcionista.setTelefone(rs.getString("telefone"));
+            recepcionista.setSalario(rs.getDouble("salario"));
         }
 
         Banco.desconectar();
         
-        return cliente;
+        return recepcionista;
     }
 
-
     @Override
-    public Collection<Clientes> lista(String criterio) throws SQLException {
+    public Collection<Recepcionista> lista(String criterio) throws SQLException {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
