@@ -118,7 +118,11 @@ public class Cadastro_clienteController implements Initializable {
             alert.showAndWait();
             
         } catch (NumberFormatException | SQLException e) {
-            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Erro");
+            alert.setHeaderText(null);
+            alert.setContentText("Verifique os dados e tente novamente.");
+            alert.showAndWait();
         }
     }
 
@@ -148,7 +152,11 @@ public class Cadastro_clienteController implements Initializable {
 
             alert.showAndWait();
         } catch (NumberFormatException | SQLException e) {
-            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Erro");
+            alert.setHeaderText(null);
+            alert.setContentText("Informe um ID valido.");
+            alert.showAndWait();
         }
     }
 
@@ -229,9 +237,14 @@ public class Cadastro_clienteController implements Initializable {
                 alert.setContentText("Cliente não encontrado.");
                 alert.showAndWait();
                 btnAlterar.setOpacity(0.5);
+                btnAlterar.setDisable(true);
             }
         } catch (NumberFormatException | SQLException e) {
-            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Erro");
+            alert.setHeaderText(null);
+            alert.setContentText("Informe um ID valido.");
+            alert.showAndWait();
         }
     }
 
