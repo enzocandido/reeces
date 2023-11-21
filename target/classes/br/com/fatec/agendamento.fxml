@@ -28,7 +28,7 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e8c4ac;" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="btnCadastrar" layoutX="1019.0" layoutY="592.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="240.0" styleClass="button" stylesheets="@CSS/styles.css" text="CADASTRAR" textFill="WHITE">
+            <Button fx:id="btnCadastrar" layoutX="1019.0" layoutY="592.0" mnemonicParsing="false" onAction="#btnCadastrar_Click" prefHeight="66.0" prefWidth="240.0" styleClass="button" stylesheets="@CSS/styles.css" text="CADASTRAR" textFill="WHITE">
                <font>
                   <Font name="Impact" size="33.0" />
                </font>
@@ -113,7 +113,7 @@
                   <Font name="Impact" size="33.0" />
                </font>
             </Button>
-            <DatePicker layoutX="571.0" layoutY="100.0" prefHeight="73.0" prefWidth="373.0" styleClass="date-picker" stylesheets="@css/styles.css" />
+            <DatePicker fx:id="dpDate" layoutX="571.0" layoutY="100.0" prefHeight="73.0" prefWidth="373.0" styleClass="date-picker" stylesheets="@css/styles.css" />
          </children></AnchorPane>
    </center>
 </BorderPane>

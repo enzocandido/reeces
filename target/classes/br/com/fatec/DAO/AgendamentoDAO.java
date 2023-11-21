@@ -2,20 +2,15 @@ package br.com.fatec.DAO;
 
 import br.com.fatec.model.Agendamento;
 import br.com.fatec.banco.Banco;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.Collection;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 
 public class AgendamentoDAO implements DAO<Agendamento> {
-    private Agendamento agendamento;
     private PreparedStatement pst;
     private ResultSet rs;
-    
-    DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 
     @Override
     public boolean insere(Agendamento dado) throws SQLException {
@@ -23,18 +18,15 @@ public class AgendamentoDAO implements DAO<Agendamento> {
 
         Banco.conectar();
 
-        String sql = "INSERT INTO agendamentos (nome_cliente, data_horario, profissional, unidade, valor, servico_id) VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO agendamentos (nome_cliente, data, profissional, unidade, valor, servico_id) VALUES (?, ?, ?, ?, ?, ?)";
 
         pst = Banco.obterConexao().prepareStatement(sql);
 
         pst.setString(1, dado.getNomeCliente());
-        
-        String formattedDate = dateFormat.format(dado.getDataHorario());
-        
-        pst.setString(2, formattedDate);
+        pst.setDate(2, new java.sql.Date(dado.getData().getTime()));
         pst.setString(3, dado.getProfissional());
         pst.setString(4, dado.getUnidade());
-        pst.setFloat(5, dado.getValor());
+        pst.setDouble(5, dado.getValor());
         pst.setInt(6, dado.getServicoId());
 
         if (pst.executeUpdate() > 0)
@@ -56,7 +48,6 @@ public class AgendamentoDAO implements DAO<Agendamento> {
         String sql = "DELETE FROM agendamentos WHERE id = ?";
 
         pst = Banco.obterConexao().prepareStatement(sql);
-
         pst.setInt(1, dado.getId());
 
         if (pst.executeUpdate() > 0)
@@ -75,16 +66,15 @@ public class AgendamentoDAO implements DAO<Agendamento> {
 
         Banco.conectar();
 
-        String sql = "UPDATE agendamentos SET nome_cliente = ?, data_horario = ?, profissional = ?, unidade = ?, valor = ?, servico_id = ? WHERE id = ?";
+        String sql = "UPDATE agendamentos SET nome_cliente = ?, data = ?, profissional = ?, unidade = ?, valor = ?, servico_id = ? WHERE id = ?";
 
         pst = Banco.obterConexao().prepareStatement(sql);
 
         pst.setString(1, dado.getNomeCliente());
-        String formattedDate = dateFormat.format(dado.getDataHorario());
-        pst.setString(2, formattedDate);
+        pst.setDate(2, new java.sql.Date(dado.getData().getTime()));
         pst.setString(3, dado.getProfissional());
         pst.setString(4, dado.getUnidade());
-        pst.setFloat(5, dado.getValor());
+        pst.setDouble(5, dado.getValor());
         pst.setInt(6, dado.getServicoId());
         pst.setInt(7, dado.getId());
 
@@ -97,16 +87,9 @@ public class AgendamentoDAO implements DAO<Agendamento> {
 
         return alterou;
     }
-
-    @Override
-    public Agendamento buscaID(Agendamento dado) throws SQLException {
-        return null;
-    }
-
-    @Override
-    public Collection<Agendamento> lista(String filtro) throws SQLException {
-        Collection<Agendamento> listagem = new ArrayList<>();
-        agendamento = null;
+    
+    public Agendamento pesquisa(String filtro) throws SQLException {
+        Agendamento agendamento = null;
 
         String sql = "SELECT * FROM agendamentos ";
 
@@ -120,22 +103,31 @@ public class AgendamentoDAO implements DAO<Agendamento> {
 
         rs = pst.executeQuery();
 
-        while (rs.next()) {
-            
+        if (rs.next()) {
             agendamento = new Agendamento();
             agendamento.setId(rs.getInt("id"));
             agendamento.setNomeCliente(rs.getString("nome_cliente"));
-            agendamento.setDataHorario(rs.getTimestamp("data_horario"));
+            java.util.Date utilDate = new java.util.Date(rs.getDate("data").getTime());
+            agendamento.setData(utilDate);
             agendamento.setProfissional(rs.getString("profissional"));
             agendamento.setUnidade(rs.getString("unidade"));
-            agendamento.setValor(rs.getFloat("valor"));
+            agendamento.setValor(rs.getDouble("valor"));
             agendamento.setServicoId(rs.getInt("servico_id"));
-
-            listagem.add(agendamento);
         }
 
         Banco.desconectar();
 
-        return listagem;
+        return agendamento;
+    }
+
+
+    @Override
+    public Collection<Agendamento> lista(String criterio) throws SQLException {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public Agendamento buscaID(Agendamento model) throws SQLException {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

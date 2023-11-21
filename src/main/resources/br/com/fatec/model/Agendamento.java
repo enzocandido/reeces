@@ -1,24 +1,24 @@
 package br.com.fatec.model;
 
-import java.sql.Timestamp;
+import java.util.Date;
 import java.util.Objects;
 
 public class Agendamento {
     private int id;
     private String nomeCliente;
-    private Timestamp dataHorario;
+    private Date data;
     private String profissional;
     private String unidade;
-    private float valor;
+    private double valor;
     private int servicoId;
 
     public Agendamento() {
     }
 
-    public Agendamento(int id, String nomeCliente, Timestamp dataHorario, String profissional, String unidade, float valor, int servicoId) {
+    public Agendamento(int id, String nomeCliente, Date data, String profissional, String unidade, double valor, int servicoId) {
         this.id = id;
         this.nomeCliente = nomeCliente;
-        this.dataHorario = dataHorario;
+        this.data = data;
         this.profissional = profissional;
         this.unidade = unidade;
         this.valor = valor;
@@ -41,12 +41,12 @@ public class Agendamento {
         this.nomeCliente = nomeCliente;
     }
 
-    public Timestamp getDataHorario() {
-        return dataHorario;
+    public Date getData() {
+        return data;
     }
 
-    public void setDataHorario(Timestamp dataHorario) {
-        this.dataHorario = dataHorario;
+    public void setData(Date data) {
+        this.data = data;
     }
 
     public String getProfissional() {
@@ -65,11 +65,11 @@ public class Agendamento {
         this.unidade = unidade;
     }
 
-    public float getValor() {
+    public double getValor() {
         return valor;
     }
 
-    public void setValor(float valor) {
+    public void setValor(double valor) {
         this.valor = valor;
     }
 
