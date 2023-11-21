@@ -47,7 +47,6 @@ public class AgendamentoController implements Initializable {
 
     @FXML
     private TextField txtId;
-    @FXML
     private TextField txtNomeCliente;
     @FXML
     private DatePicker dpData;
@@ -55,14 +54,8 @@ public class AgendamentoController implements Initializable {
     private TextField txtProfissional;
     @FXML
     private TextField txtUnidade;
-    @FXML
     private TextField txtValor;
-    @FXML
     private TextField txtServico;
-    @FXML
-    private Button btnCadastrarAgendamento;
-    @FXML
-    private Button btnCancelarAgendamento;
     @FXML
     private Button btnCadastrar;
     @FXML
@@ -79,8 +72,6 @@ public class AgendamentoController implements Initializable {
     private ComboBox<Servicos> cmbServicos;
     @FXML
     private Button btnCancelar;
-    @FXML
-    private DatePicker dpDate;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -99,6 +90,15 @@ public class AgendamentoController implements Initializable {
     }
 
     @FXML
+    private void btnCancelar_Click(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/br/com/fatec/menu.fxml"));
+        Parent root = loader.load();
+        Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+    
+    @FXML
     private void btnCadastrar_Click(ActionEvent event) {
         try {
             inserirAgendamento();
@@ -108,59 +108,72 @@ public class AgendamentoController implements Initializable {
         }
     }
 
-    @FXML
-    private void btnCancelar_Click(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/br/com/fatec/menu.fxml"));
-        Parent root = loader.load();
-        Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.show();
-    }
-
     private void inserirAgendamento() throws SQLException, ParseException {
         AgendamentoDAO agendamentoDAO = new AgendamentoDAO();
 
         try {
-            String nomeCliente = txtNomeCliente.getText();
+            String nomeCliente = txtCliente.getText();
             LocalDate data = dpData.getValue();
             String profissional = txtProfissional.getText();
             String unidade = txtUnidade.getText();
-            double valor = Double.parseDouble(txtValor.getText());
-            int servicoId = Integer.parseInt(txtServico.getText());
+            String valorString = txtTotal.getText().replaceAll("[^\\d.]", "");
+            double valor = Double.parseDouble(valorString);
 
-            Agendamento agendamento = new Agendamento();
-            agendamento.setNomeCliente(nomeCliente);
-            agendamento.setData(Date.from(data.atStartOfDay(ZoneId.systemDefault()).toInstant()));
-            agendamento.setProfissional(profissional);
-            agendamento.setUnidade(unidade);
-            agendamento.setValor(valor);
-            agendamento.setServicoId(servicoId);
+            Servicos servicoSelecionado = cmbServicos.getSelectionModel().getSelectedItem();
+            
+            System.out.println(nomeCliente);
+            System.out.println(data);
+            System.out.println(profissional);
+            System.out.println(unidade);
+            System.out.println(valor);
+            System.out.println(servicoSelecionado);
 
-            boolean inseriu = agendamentoDAO.insere(agendamento);
-            Alert alert = new Alert(inseriu ? Alert.AlertType.INFORMATION : Alert.AlertType.ERROR);
-            alert.setTitle("Aviso");
-            alert.setHeaderText(null);
 
-            if (inseriu) {
-                alert.setContentText("Agendamento cadastrado com sucesso!");
-                limparCampos();
+
+            if (servicoSelecionado != null) {
+                int servicoId = servicoSelecionado.getId();
+
+                Agendamento agendamento = new Agendamento();
+                agendamento.setNomeCliente(nomeCliente);
+                agendamento.setData(Date.from(data.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+                agendamento.setProfissional(profissional);
+                agendamento.setUnidade(unidade);
+                agendamento.setValor(valor);
+                agendamento.setServicoId(servicoId);
+
+                boolean inseriu = agendamentoDAO.insere(agendamento);
+                Alert alert = new Alert(inseriu ? Alert.AlertType.INFORMATION : Alert.AlertType.ERROR);
+                alert.setTitle("Aviso");
+                alert.setHeaderText(null);
+
+                if (inseriu) {
+                    alert.setContentText("Agendamento cadastrado com sucesso!");
+                    limparCampos();
+                } else {
+                    alert.setContentText("Falha ao cadastrar o agendamento. ");
+                }
+
+                alert.showAndWait();
             } else {
-                alert.setContentText("Falha ao cadastrar o agendamento. ");
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Aviso");
+                alert.setHeaderText(null);
+                alert.setContentText("Selecione um serviço antes de cadastrar o agendamento.");
+                alert.showAndWait();
             }
-
-            alert.showAndWait();
         } catch (NumberFormatException | SQLException e) {
             e.printStackTrace();
         }
     }
 
+
     private void limparCampos() {
-        txtNomeCliente.clear();
+        txtCliente.clear();
         dpData.setValue(null);
         txtProfissional.clear();
         txtUnidade.clear();
-        txtValor.clear();
-        txtServico.clear();
+        txtTotal.clear();
+        cmbServicos.setValue(null);
     }
 
     private void carregarDadosDoBanco() throws SQLException {
@@ -261,7 +274,7 @@ public class AgendamentoController implements Initializable {
             
             LocalDate dataAgendamento = agendamentoPesquisado.getData().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 
-            dpDate.setValue(dataAgendamento);
+            dpData.setValue(dataAgendamento);
 
             txtUnidade.setText(agendamentoPesquisado.getUnidade());
 
@@ -281,10 +294,87 @@ public class AgendamentoController implements Initializable {
 
     @FXML
     private void btnAlterar_Click(ActionEvent event) {
+        AgendamentoDAO agendamentoDAO = new AgendamentoDAO();
+
+        try {
+            int idAgendamento = Integer.parseInt(txtId.getText());
+            String nomeCliente = txtCliente.getText();
+            LocalDate data = dpData.getValue();
+            String profissional = txtProfissional.getText();
+            String unidade = txtUnidade.getText();
+            String valorString = txtTotal.getText().replaceAll("[^\\d.]", "");
+            double valor = Double.parseDouble(valorString);
+
+            Servicos servicoSelecionado = cmbServicos.getSelectionModel().getSelectedItem();
+
+            Agendamento agendamentoAlterado = new Agendamento();
+            agendamentoAlterado.setId(idAgendamento);
+            agendamentoAlterado.setNomeCliente(nomeCliente);
+            agendamentoAlterado.setData(Date.from(data.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+            agendamentoAlterado.setProfissional(profissional);
+            agendamentoAlterado.setUnidade(unidade);
+            agendamentoAlterado.setValor(valor);
+
+            if (servicoSelecionado != null) {
+                agendamentoAlterado.setServicoId(servicoSelecionado.getId());
+            }
+
+            boolean alterou = agendamentoDAO.altera(agendamentoAlterado);
+
+            Alert alert = new Alert(alterou ? Alert.AlertType.INFORMATION : Alert.AlertType.ERROR);
+            alert.setTitle("Aviso");
+            alert.setHeaderText(null);
+
+            if (alterou) {
+                alert.setContentText("Agendamento alterado com sucesso!");
+                limparCampos();
+            } else {
+                alert.setContentText("Falha ao alterar o agendamento. Verifique os dados.");
+            }
+
+            alert.showAndWait();
+
+        } catch (NumberFormatException | SQLException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Erro");
+            alert.setHeaderText(null);
+            alert.setContentText("Verifique os dados e tente novamente.");
+            alert.showAndWait();
+        }
     }
+
 
     @FXML
     private void btnExcluir_Click(ActionEvent event) {
+        AgendamentoDAO agendamentoDAO = new AgendamentoDAO();
+
+        try {
+            int idAgendamento = Integer.parseInt(txtId.getText());
+
+            Agendamento agendamento = new Agendamento();
+            agendamento.setId(idAgendamento);
+
+            boolean removido = agendamentoDAO.remove(agendamento);
+
+            Alert alert = new Alert(removido ? Alert.AlertType.INFORMATION : Alert.AlertType.ERROR);
+            alert.setTitle("Aviso");
+            alert.setHeaderText(null);
+
+            if (removido) {
+                alert.setContentText("Agendamento removido com sucesso!");
+                limparCampos();
+            } else {
+                alert.setContentText("Falha ao remover o agendamento. Verifique o ID.");
+            }
+
+            alert.showAndWait();
+        } catch (NumberFormatException | SQLException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Erro");
+            alert.setHeaderText(null);
+            alert.setContentText("Informe um ID válido.");
+            alert.showAndWait();
+        }
     }
 
     private void animacaoBotao(Button button) {
@@ -317,5 +407,31 @@ public class AgendamentoController implements Initializable {
 
     private void restaurarAparenciaCursor(Button button) {
         button.setCursor(Cursor.DEFAULT);
+    }
+
+    @FXML
+    private void txtId_Typed(KeyEvent event) {
+        String idClienteString = txtId.getText();
+
+        if (!idClienteString.isEmpty()) {
+            try {
+                int idCliente = Integer.parseInt(idClienteString);
+                if (idCliente > 0) {
+                    btnExcluir.setDisable(false);
+                    btnExcluir.setOpacity(1);
+                } else {
+                    btnAlterar.setOpacity(0.5);
+                    btnExcluir.setOpacity(0.5);
+                }
+            } catch (NumberFormatException e) {
+                btnAlterar.setOpacity(0.5);
+                btnExcluir.setOpacity(0.5);
+            }
+        } else {
+            btnExcluir.setDisable(true);
+            btnAlterar.setDisable(true);
+            btnExcluir.setOpacity(0.5);
+            btnAlterar.setOpacity(0.5);
+        }
     }
 }

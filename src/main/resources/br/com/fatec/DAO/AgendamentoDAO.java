@@ -6,7 +6,11 @@ import br.com.fatec.banco.Banco;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public class AgendamentoDAO implements DAO<Agendamento> {
     private PreparedStatement pst;
@@ -119,6 +123,54 @@ public class AgendamentoDAO implements DAO<Agendamento> {
 
         return agendamento;
     }
+    
+    public ObservableList<Agendamento> filtrarPorNomeEData(String nomeCliente, java.sql.Date data) throws SQLException {
+        ObservableList<Agendamento> agendamentos = FXCollections.observableArrayList();
+
+        StringBuilder sql = new StringBuilder("SELECT * FROM agendamentos WHERE 1");
+
+        if (nomeCliente != null && !nomeCliente.isEmpty()) {
+            sql.append(" AND nome_cliente = ?");
+        }
+
+        if (data != null) {
+            sql.append(" AND data = ?");
+        }
+
+        Banco.conectar();
+
+        try (PreparedStatement pst = Banco.obterConexao().prepareStatement(sql.toString())) {
+            int parameterIndex = 1;
+
+            if (nomeCliente != null && !nomeCliente.isEmpty()) {
+                pst.setString(parameterIndex++, nomeCliente);
+            }
+
+            if (data != null) {
+                pst.setDate(parameterIndex, data);
+            }
+
+            try (ResultSet rs = pst.executeQuery()) {
+                while (rs.next()) {
+                    Agendamento agendamento = new Agendamento(
+                            rs.getInt("id"),
+                            rs.getString("nome_cliente"),
+                            rs.getDate("data"),
+                            rs.getString("profissional"),
+                            rs.getString("unidade"),
+                            rs.getDouble("valor"),
+                            rs.getInt("servico_id")
+                    );
+
+                    agendamentos.add(agendamento);
+                }
+            }
+        } finally {
+            Banco.desconectar();
+        }
+
+        return agendamentos;
+    }
 
 
     @Override
@@ -128,6 +180,6 @@ public class AgendamentoDAO implements DAO<Agendamento> {
 
     @Override
     public Agendamento buscaID(Agendamento model) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 }
