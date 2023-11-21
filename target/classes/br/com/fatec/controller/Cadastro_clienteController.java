@@ -68,7 +68,7 @@ public class Cadastro_clienteController implements Initializable {
         animacaoBotao(btnAlterar);
         animacaoBotao(btnPesquisar);
         animacaoBotao(btnCancelar);
-    }    
+    }
 
     @FXML
     private void btnCadastrar_Click(ActionEvent event) {
@@ -99,11 +99,12 @@ public class Cadastro_clienteController implements Initializable {
             clienteAlterado.setEmail(email);
             clienteAlterado.setSexo(sexo);
             clienteAlterado.setTelefone(telefone);
-            clienteAlterado.setDataNascimento(Date.from(dataNascimento.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+            clienteAlterado
+                    .setDataNascimento(Date.from(dataNascimento.atStartOfDay(ZoneId.systemDefault()).toInstant()));
             clienteAlterado.setEndereco(endereco);
 
             boolean alterou = clienteDAO.altera(clienteAlterado);
-            
+
             Alert alert = new Alert(alterou ? Alert.AlertType.INFORMATION : Alert.AlertType.ERROR);
             alert.setTitle("Aviso");
             alert.setHeaderText(null);
@@ -114,9 +115,9 @@ public class Cadastro_clienteController implements Initializable {
             } else {
                 alert.setContentText("Falha ao alterar o cliente. Verifique os dados.");
             }
-            
+
             alert.showAndWait();
-            
+
         } catch (NumberFormatException | SQLException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Erro");
@@ -126,11 +127,10 @@ public class Cadastro_clienteController implements Initializable {
         }
     }
 
-
     @FXML
     private void btnExcluir_Click(ActionEvent event) {
         ClienteDAO clienteDAO = new ClienteDAO();
-        
+
         try {
             int idCliente = Integer.parseInt(txtId.getText());
 
@@ -176,7 +176,7 @@ public class Cadastro_clienteController implements Initializable {
             cliente.setEmail(email);
             cliente.setSexo(sexo);
             cliente.setTelefone(telefone);
-            cliente.setDataNascimento(Date.from(dataNascimento.atStartOfDay(ZoneId.systemDefault()).toInstant())); 
+            cliente.setDataNascimento(Date.from(dataNascimento.atStartOfDay(ZoneId.systemDefault()).toInstant()));
             cliente.setEndereco(endereco);
 
             boolean inseriu = clienteDAO.insere(cliente);
@@ -221,12 +221,13 @@ public class Cadastro_clienteController implements Initializable {
                 txtSexo.setText(clientePesquisado.getSexo());
                 txtTelefone.setText(clientePesquisado.getTelefone());
 
-                LocalDate dataNascimento = clientePesquisado.getDataNascimento().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+                LocalDate dataNascimento = clientePesquisado.getDataNascimento().toInstant()
+                        .atZone(ZoneId.systemDefault()).toLocalDate();
 
                 dpNascimento.setValue(dataNascimento);
 
                 txtEndereco.setText(clientePesquisado.getEndereco());
-                
+
                 btnAlterar.setOpacity(1);
                 btnAlterar.setDisable(false);
             } else {

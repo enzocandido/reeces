@@ -5,20 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8459b817-a7a3-49eb-adb5-9f91a97a37f0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/br/com/fatec/cadastro_barbeiros.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/br/com/fatec/cadastro_barbeiros.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/br/com/fatec/controller/Cadastro_barbeirosController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/br/com/fatec/controller/Cadastro_barbeirosController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/br/com/fatec/controller/Cadastro_clienteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/br/com/fatec/controller/Cadastro_clienteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/br/com/fatec/controller/Cadastro_recepcionistaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/br/com/fatec/controller/Cadastro_recepcionistaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/.netbeans_automatic_build" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/fatec/cadastro_barbeiros.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/fatec/cadastro_barbeiros.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/fatec/controller/Cadastro_barbeirosController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/fatec/controller/Cadastro_barbeirosController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/fatec/controller/Cadastro_barbeirosController.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/fatec/controller/Cadastro_barbeirosController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/fatec/controller/Cadastro_clienteController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/fatec/controller/Cadastro_clienteController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/fatec/controller/Cadastro_clienteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/fatec/controller/Cadastro_clienteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/fatec/controller/Cadastro_recepcionistaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/fatec/controller/Cadastro_recepcionistaController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/fatec/controller/Cadastro_recepcionistaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/fatec/controller/Cadastro_recepcionistaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/.netbeans_automatic_build" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +47,7 @@
       <updated>1700444065789</updated>
       <workItem from="1700444077226" duration="604000" />
       <workItem from="1700533909934" duration="19000" />
+      <workItem from="1700579027024" duration="493000" />
     </task>
     <servers />
   </component>

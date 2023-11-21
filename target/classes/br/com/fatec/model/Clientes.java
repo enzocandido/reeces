@@ -15,7 +15,8 @@ public class Clientes {
     public Clientes() {
     }
 
-    public Clientes(int id, String nome, String email, String sexo, String telefone, Date dataNascimento, String endereco) {
+    public Clientes(int id, String nome, String email, String sexo, String telefone, Date dataNascimento,
+            String endereco) {
         this.id = id;
         this.nome = nome;
         this.email = email;

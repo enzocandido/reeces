@@ -45,7 +45,7 @@ public class Cadastro_barbeirosController implements Initializable {
     private Button btnExcluir;
     @FXML
     private Button btnCancelar;
-    
+
     private ArrayList<Barbeiro> barbeiros;
     @FXML
     private TextField txtEspecialidade;
@@ -57,16 +57,16 @@ public class Cadastro_barbeirosController implements Initializable {
         animacaoBotao(btnAlterar);
         animacaoBotao(btnPesquisar);
         animacaoBotao(btnCancelar);
-        
+
         barbeiros = new ArrayList<>();
-    }    
+    }
 
     @FXML
     private void btnCadastrar_Click(ActionEvent event) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Aviso");
         alert.setHeaderText(null);
-        
+
         try {
             Barbeiro novoBarbeiro = new Barbeiro(
                     Integer.parseInt(txtId.getText()),
@@ -75,7 +75,7 @@ public class Cadastro_barbeirosController implements Initializable {
                     txtSexo.getText(),
                     txtTelefone.getText(),
                     Double.parseDouble(txtSalario.getText()),
-                    txtEspecialidade.getText()); 
+                    txtEspecialidade.getText());
             barbeiros.add(novoBarbeiro);
             limparCampos();
             alert.setContentText("Barbeiro cadastrado com sucesso!");
@@ -109,14 +109,14 @@ public class Cadastro_barbeirosController implements Initializable {
                 String telefone = txtTelefone.getText();
                 double salario = Double.parseDouble(txtSalario.getText());
                 String especialidade = txtEspecialidade.getText();
-                
+
                 barbeiroParaAlterar.setNome(nome);
                 barbeiroParaAlterar.setEmail(email);
                 barbeiroParaAlterar.setSexo(sexo);
                 barbeiroParaAlterar.setTelefone(telefone);
                 barbeiroParaAlterar.setSalario(salario);
                 barbeiroParaAlterar.setEspecialidade(especialidade);
-                
+
                 alert.setContentText("Alteração realizada com sucesso!");
                 alert.setAlertType(Alert.AlertType.INFORMATION);
 
@@ -133,14 +133,13 @@ public class Cadastro_barbeirosController implements Initializable {
         alert.showAndWait();
     }
 
-
     @FXML
     private void btnExcluir_Click(ActionEvent event) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Aviso");
         alert.setHeaderText(null);
-        
-         try {
+
+        try {
             int idBarbeiro = Integer.parseInt(txtId.getText());
 
             Barbeiro barbeiroRemover = null;
@@ -198,7 +197,7 @@ public class Cadastro_barbeirosController implements Initializable {
             restaurarAparenciaCursor(button);
         });
     }
-    
+
     private void animacaoTransicao(Parent root) {
         FadeTransition fadeIn = new FadeTransition(Duration.millis(200), root);
         fadeIn.setFromValue(0.0);
@@ -213,7 +212,7 @@ public class Cadastro_barbeirosController implements Initializable {
     private void restaurarAparenciaCursor(Button button) {
         button.setCursor(Cursor.DEFAULT);
     }
-    
+
     private void limparCampos() {
         txtNome.clear();
         txtEmail.clear();
@@ -229,7 +228,7 @@ public class Cadastro_barbeirosController implements Initializable {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Aviso");
         alert.setHeaderText(null);
-        
+
         try {
             int idBarbeiro = Integer.parseInt(txtId.getText());
 

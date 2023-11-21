@@ -12,7 +12,8 @@ public class Barbeiro {
     public Barbeiro() {
     }
 
-    public Barbeiro(int id, String nome, String email, String sexo, String telefone, double salario, String especialidade) {
+    public Barbeiro(int id, String nome, String email, String sexo, String telefone, double salario,
+            String especialidade) {
         this.id = id;
         this.nome = nome;
         this.email = email;

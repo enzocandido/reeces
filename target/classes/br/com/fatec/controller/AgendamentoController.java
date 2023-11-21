@@ -93,7 +93,7 @@ public class AgendamentoController implements Initializable {
         stage.setScene(new Scene(root));
         stage.show();
     }
-    
+
     @FXML
     private void btnCadastrar_Click(ActionEvent event) {
         try {
@@ -116,15 +116,13 @@ public class AgendamentoController implements Initializable {
             double valor = Double.parseDouble(valorString);
 
             Servicos servicoSelecionado = cmbServicos.getSelectionModel().getSelectedItem();
-            
+
             System.out.println(nomeCliente);
             System.out.println(data);
             System.out.println(profissional);
             System.out.println(unidade);
             System.out.println(valor);
             System.out.println(servicoSelecionado);
-
-
 
             if (servicoSelecionado != null) {
                 int servicoId = servicoSelecionado.getId();
@@ -249,15 +247,15 @@ public class AgendamentoController implements Initializable {
 
         int idCliente = Integer.parseInt(txtId.getText());
         Agendamento agendamentoPesquisado = agendamentoDAO.pesquisa("id = " + idCliente);
-        
+
         if (agendamentoPesquisado != null) {
             txtCliente.setText(agendamentoPesquisado.getNomeCliente());
             txtProfissional.setText(agendamentoPesquisado.getProfissional());
             txtUnidade.setText(agendamentoPesquisado.getUnidade());
             txtTotal.setText(String.valueOf(agendamentoPesquisado.getValor()));
-            
+
             ObservableList<Servicos> servicosList = cmbServicos.getItems();
-            
+
             int servicoIdDesejado = agendamentoPesquisado.getServicoId(); //
 
             for (Servicos servico : servicosList) {
@@ -266,8 +264,9 @@ public class AgendamentoController implements Initializable {
                     break;
                 }
             }
-            
-            LocalDate dataAgendamento = agendamentoPesquisado.getData().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+
+            LocalDate dataAgendamento = agendamentoPesquisado.getData().toInstant().atZone(ZoneId.systemDefault())
+                    .toLocalDate();
 
             dpData.setValue(dataAgendamento);
 
@@ -337,7 +336,6 @@ public class AgendamentoController implements Initializable {
             alert.showAndWait();
         }
     }
-
 
     @FXML
     private void btnExcluir_Click(ActionEvent event) {

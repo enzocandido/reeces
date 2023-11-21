@@ -58,7 +58,7 @@ public class Cadastro_recepcionistaController implements Initializable {
         animacaoBotao(btnAlterar);
         animacaoBotao(btnPesquisar);
         animacaoBotao(btnCancelar);
-    }    
+    }
 
     @FXML
     private void btnCadastrar_Click(ActionEvent event) {
@@ -91,7 +91,7 @@ public class Cadastro_recepcionistaController implements Initializable {
             recepcionistaAlterado.setSalario(salario);
 
             boolean alterou = recepcionistaDAO.altera(recepcionistaAlterado);
-            
+
             Alert alert = new Alert(alterou ? Alert.AlertType.INFORMATION : Alert.AlertType.ERROR);
             alert.setTitle("Aviso");
             alert.setHeaderText(null);
@@ -102,9 +102,9 @@ public class Cadastro_recepcionistaController implements Initializable {
             } else {
                 alert.setContentText("Falha ao alterar o recepcionista. Verifique os dados.");
             }
-            
+
             alert.showAndWait();
-            
+
         } catch (NumberFormatException | SQLException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Erro");
@@ -117,7 +117,7 @@ public class Cadastro_recepcionistaController implements Initializable {
     @FXML
     private void btnExcluir_Click(ActionEvent event) {
         RecepcionistaDAO recepcionistaDAO = new RecepcionistaDAO();
-        
+
         try {
             int idRecepcionista = Integer.parseInt(txtId.getText());
 
@@ -201,7 +201,7 @@ public class Cadastro_recepcionistaController implements Initializable {
                 txtSexo.setText(recepcionistaPesquisado.getSexo());
                 txtTelefone.setText(recepcionistaPesquisado.getTelefone());
                 txtSalario.setText(String.valueOf(recepcionistaPesquisado.getSalario()));
-                
+
                 btnAlterar.setOpacity(1);
                 btnAlterar.setDisable(false);
             } else {

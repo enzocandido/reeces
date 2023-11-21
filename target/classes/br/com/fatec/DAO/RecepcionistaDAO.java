@@ -94,7 +94,7 @@ public class RecepcionistaDAO implements DAO<Recepcionista> {
 
     @Override
     public Recepcionista buscaID(Recepcionista dado) throws SQLException {
-       return null;
+        return null;
     }
 
     public Recepcionista pesquisa(String filtro) throws SQLException {
@@ -123,7 +123,7 @@ public class RecepcionistaDAO implements DAO<Recepcionista> {
         }
 
         Banco.desconectar();
-        
+
         return recepcionista;
     }
 

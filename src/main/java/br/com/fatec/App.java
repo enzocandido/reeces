@@ -38,14 +38,13 @@ public class App extends Application {
     public static void fechar() {
         stage.close();
     }
-    
+
     public static void main(String[] args) {
         launch();
         try {
             Banco.conectar();
             Banco.desconectar();
-        }
-        catch (SQLException ex) {
+        } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
         }
     }

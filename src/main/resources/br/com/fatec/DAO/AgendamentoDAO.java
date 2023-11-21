@@ -91,7 +91,7 @@ public class AgendamentoDAO implements DAO<Agendamento> {
 
         return alterou;
     }
-    
+
     public Agendamento pesquisa(String filtro) throws SQLException {
         Agendamento agendamento = null;
 
@@ -123,7 +123,7 @@ public class AgendamentoDAO implements DAO<Agendamento> {
 
         return agendamento;
     }
-    
+
     public ObservableList<Agendamento> filtrarPorNomeEData(String nomeCliente, java.sql.Date data) throws SQLException {
         ObservableList<Agendamento> agendamentos = FXCollections.observableArrayList();
 
@@ -159,8 +159,7 @@ public class AgendamentoDAO implements DAO<Agendamento> {
                             rs.getString("profissional"),
                             rs.getString("unidade"),
                             rs.getDouble("valor"),
-                            rs.getInt("servico_id")
-                    );
+                            rs.getInt("servico_id"));
 
                     agendamentos.add(agendamento);
                 }
@@ -171,7 +170,6 @@ public class AgendamentoDAO implements DAO<Agendamento> {
 
         return agendamentos;
     }
-
 
     @Override
     public Collection<Agendamento> lista(String criterio) throws SQLException {

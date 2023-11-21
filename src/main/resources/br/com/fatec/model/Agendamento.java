@@ -15,7 +15,8 @@ public class Agendamento {
     public Agendamento() {
     }
 
-    public Agendamento(int id, String nomeCliente, Date data, String profissional, String unidade, double valor, int servicoId) {
+    public Agendamento(int id, String nomeCliente, Date data, String profissional, String unidade, double valor,
+            int servicoId) {
         this.id = id;
         this.nomeCliente = nomeCliente;
         this.data = data;

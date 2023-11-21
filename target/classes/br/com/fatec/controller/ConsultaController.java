@@ -52,7 +52,7 @@ public class ConsultaController implements Initializable {
     private TableColumn<Agendamento, Double> tcValor;
     @FXML
     private TableColumn<Agendamento, Integer> tcIdServico;
-    
+
     private AgendamentoDAO agendamentoDAO = new AgendamentoDAO();
 
     @Override
@@ -60,7 +60,7 @@ public class ConsultaController implements Initializable {
         animacaoBotao(btnFiltrar);
         animacaoBotao(btnCancelar);
         configurarTabela();
-    }    
+    }
 
     @FXML
     private void btnCancelar_Click(ActionEvent event) throws IOException {
@@ -70,7 +70,7 @@ public class ConsultaController implements Initializable {
         stage.setScene(new Scene(root));
         stage.show();
     }
-    
+
     private void configurarTabela() {
         tcId.setCellValueFactory(new PropertyValueFactory<>("id"));
         tcNome.setCellValueFactory(new PropertyValueFactory<>("nomeCliente"));
@@ -141,5 +141,5 @@ public class ConsultaController implements Initializable {
     private void restaurarAparenciaCursor(Button button) {
         button.setCursor(Cursor.DEFAULT);
     }
-    
+
 }

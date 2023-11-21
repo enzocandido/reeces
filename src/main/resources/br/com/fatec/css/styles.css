@@ -1,16 +1,16 @@
 .button {
-    -fx-background-color: #331b1b;
-    -fx-background-radius: 20px;
-    -fx-effect: dropshadow( three-pass-box, rgba(0,0,0,0.6) , 15, 0.0 , 0 , 2);   
+  -fx-background-color: #331b1b;
+  -fx-background-radius: 20px;
+  -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.6), 15, 0, 0, 2);
 }
 
 .input {
-    -fx-background-color: #ffff;
-    -fx-background-radius: 20px;
-    -fx-effect: dropshadow( three-pass-box, rgba(0,0,0,0.6) , 15, 0.0 , 0 , 2);  
+  -fx-background-color: #ffff;
+  -fx-background-radius: 20px;
+  -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.6), 15, 0, 0, 2);
 }
 
 .date-picker {
-    -fx-background-color: #ffff;
-    -fx-effect: dropshadow( three-pass-box, rgba(0,0,0,0.6) , 15, 0.0 , 0 , 2);
+  -fx-background-color: #ffff;
+  -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.6), 15, 0, 0, 2);
 }

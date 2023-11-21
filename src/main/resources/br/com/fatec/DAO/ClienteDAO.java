@@ -34,7 +34,6 @@ public class ClienteDAO implements DAO<Clientes> {
         pst.setDate(5, new java.sql.Date(dado.getDataNascimento().getTime()));
         pst.setString(6, dado.getEndereco());
 
-
         if (pst.executeUpdate() > 0)
             inseriu = true;
         else
@@ -97,7 +96,7 @@ public class ClienteDAO implements DAO<Clientes> {
 
     @Override
     public Clientes buscaID(Clientes dado) throws SQLException {
-       return null;
+        return null;
     }
 
     public Clientes pesquisa(String filtro) throws SQLException {
@@ -129,10 +128,9 @@ public class ClienteDAO implements DAO<Clientes> {
         }
 
         Banco.desconectar();
-        
+
         return cliente;
     }
-
 
     @Override
     public Collection<Clientes> lista(String criterio) throws SQLException {

@@ -41,8 +41,8 @@ public class MenuController implements Initializable {
         animacaoBotao(btnBarbeiros);
         animacaoBotao(btnAgendamentos);
         animacaoBotao(btnConsultar);
-    }    
-  
+    }
+
     private void animacaoBotao(Button button) {
         ScaleTransition scaleIn = new ScaleTransition(Duration.millis(100), button);
         scaleIn.setFromX(1.0);
@@ -66,7 +66,7 @@ public class MenuController implements Initializable {
             restaurarAparenciaCursor(button);
         });
     }
-    
+
     private void animacaoTransicao(Parent root) {
         FadeTransition fadeIn = new FadeTransition(Duration.millis(200), root);
         fadeIn.setFromValue(0.0);
