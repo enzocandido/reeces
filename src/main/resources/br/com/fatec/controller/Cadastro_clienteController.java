@@ -74,7 +74,6 @@ public class Cadastro_clienteController implements Initializable {
     private void btnCadastrar_Click(ActionEvent event) {
         try {
             inserirCliente();
-            limparCampos();
         } catch (SQLException | ParseException e) {
             e.printStackTrace();
         }

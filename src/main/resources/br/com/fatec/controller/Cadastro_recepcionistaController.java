@@ -64,7 +64,6 @@ public class Cadastro_recepcionistaController implements Initializable {
     private void btnCadastrar_Click(ActionEvent event) {
         try {
             inserirRecepcionista();
-            limparCampos();
         } catch (SQLException | ParseException e) {
             e.printStackTrace();
         }
